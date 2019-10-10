@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import { resolve } from 'any-promise'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    login: false,
+    exists: false,
     token: localStorage.getItem('token') || null,
     all_universities: [],
     canada: [],
@@ -17,26 +18,22 @@ export default new Vuex.Store({
     LOAD_UNIVERSITIES (state) {
       state.all_universities = require('./data/NewUni.json')
     },
-    SIGNUP (state, user) {
-      state.login = true
+    SIGNUPERROR (state, message) {
+      if (message === 'Request failed with status code 409') {
+        state.exists = true
+      }
     },
     LOGIN (state, res) {
-      if (res.message === 'Auth successful') {
-        state.login = true
-        state.token = res.token
-        console.log(res.token)
-      } else {
-        state.login = false
-        console.log(res.message)
-      }
+      state.token = res.token
     },
     LOGOUT (state) {
       state.login = false
+      localStorage.removeItem('token')
+      state.token = null
     },
     LOAD_BY_COUNTRY (state) {
-      for (var i = 0; i < 9000; i++) {
+      for (var i = 0; i < state.all_universities.length; i++) {
         if (state.all_universities[i].country === 'Canada') {
-          console.log('Canada found')
           state.canada.push(state.all_universities[i])
         }
       }
@@ -57,25 +54,30 @@ export default new Vuex.Store({
 
   actions: {
     signup ({ commit }, user) {
-      axios.post('/api/user/signup', user).then(res => {
-        console.log(res)
-      }).catch(err => {
-        console.log(err)
+      return new Promise((resolve, reject) => {
+        axios.post('/api/user/signup', user)
+          .then(({ res, status }) => {
+            resolve(true)
+          }).catch(err => {
+            reject(err)
+          })
       })
-      commit('SIGNUP', user)
     },
     login ({ commit }, user) {
-      axios.post('/api/user/login', user).then(res => {
-        const token = res.data.token
-        localStorage.setItem('token', token)
-        commit('LOGIN', res.data)
-      }).catch(err => {
-        console.log(err)
+      return new Promise((resolve, reject) => {
+        axios.post('/api/user/login', user)
+          .then(res => {
+            const token = res.data.token
+            localStorage.setItem('token', token)
+            commit("LOGIN", token)
+            resolve(true)
+          }).catch(err => {
+            reject(err)
+          })
       })
     },
     logout ({ commit }) {
       commit('LOGOUT')
-      localStorage.removeItem('token')
     },
     loadUniversities ({ commit }) {
       commit('LOAD_UNIVERSITIES')
