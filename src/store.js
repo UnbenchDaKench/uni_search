@@ -5,26 +5,58 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    login: false
+    login: false,
+    token: localStorage.getItem('token') || null,
+    all_universities: [],
+    canada: [],
+    usa: [],
+    china: [],
+    load_number: 3
   },
   mutations: {
-    SIGNUP(state, user) {
-      console.log(user)
+    LOAD_UNIVERSITIES (state) {
+      state.all_universities = require('./data/NewUni.json')
     },
-    LOGIN(state, res) {
-      if (res.message === "Auth successful") {
+    SIGNUP (state, user) {
+      state.login = true
+    },
+    LOGIN (state, res) {
+      if (res.message === 'Auth successful') {
         state.login = true
-        console.log(res.message)
-      }
-      else {
+        state.token = res.token
+        console.log(res.token)
+      } else {
         state.login = false
         console.log(res.message)
-
       }
+    },
+    LOGOUT (state) {
+      state.login = false
+    },
+    LOAD_BY_COUNTRY (state) {
+      for (var i = 0; i < 9000; i++) {
+        if (state.all_universities[i].country === 'Canada') {
+          console.log('Canada found')
+          state.canada.push(state.all_universities[i])
+        }
+      }
+    },
+    LOAD_MORE_UNIS (state) {
+      state.load_number += 6
+    },
+    LOAD_LESS_UNIS (state) {
+      state.load_number -= 6
     }
   },
+
+  getters: {
+    loggedIn (state) {
+      return state.token !== null
+    }
+  },
+
   actions: {
-    signup({ commit }, user) {
+    signup ({ commit }, user) {
       axios.post('/api/user/signup', user).then(res => {
         console.log(res)
       }).catch(err => {
@@ -32,13 +64,30 @@ export default new Vuex.Store({
       })
       commit('SIGNUP', user)
     },
-    login({ commit }, user) {
+    login ({ commit }, user) {
       axios.post('/api/user/login', user).then(res => {
+        const token = res.data.token
+        localStorage.setItem('token', token)
         commit('LOGIN', res.data)
       }).catch(err => {
         console.log(err)
       })
-
+    },
+    logout ({ commit }) {
+      commit('LOGOUT')
+      localStorage.removeItem('token')
+    },
+    loadUniversities ({ commit }) {
+      commit('LOAD_UNIVERSITIES')
+    },
+    loadByCountry ({ commit }) {
+      commit('LOAD_BY_COUNTRY')
+    },
+    loadMore ({ commit }) {
+      commit('LOAD_MORE_UNIS')
+    },
+    loadLess ({ commit }) {
+      commit('LOAD_LESS_UNIS')
     }
 
   }
