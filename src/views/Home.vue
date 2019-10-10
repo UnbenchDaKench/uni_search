@@ -8,16 +8,16 @@
 </template>
 
 <script>
-import DefaultLandingPage from "../components/DefaultLandingPage";
-import { mapState } from 'vuex';
+import DefaultLandingPage from '../components/DefaultLandingPage'
+import { mapState } from 'vuex'
 export default {
   components: {
     DefaultLandingPage
   },
   computed: {
-    loggedIn(){
+    loggedIn () {
       return this.$store.getters.loggedIn
     }
   }
-};
+}
 </script>

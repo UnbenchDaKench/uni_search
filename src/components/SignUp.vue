@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-layout>
+    <v-layout justify-center>
       <v-flex md4>
         <v-form>
           <v-alert :value="errorSignUp" type="error">This user already exists, try again</v-alert>
@@ -27,7 +27,9 @@
             :rules="confirmpasswordRules"
             :error="error"
           ></v-text-field>
-          <v-btn @click="signup">Sign up</v-btn>
+          <div class="text-center">
+            <v-btn @click="signup">Sign up</v-btn>
+          </div>
         </v-form>
       </v-flex>
     </v-layout>
@@ -77,7 +79,7 @@ export default {
               password: this.password
             })
             .then(success => {
-              this.$router.push("/login")
+              this.$router.push("/login");
             })
 
             .catch(errorSignUp => {

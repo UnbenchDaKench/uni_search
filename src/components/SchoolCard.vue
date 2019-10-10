@@ -1,7 +1,7 @@
 <template>
-  <v-card min-height="400"  class="elevation-15">
+  <v-card min-height="400" hover>
 
-      <v-img 
+      <v-img
       class="white--text"
       height="200px"
       :src="image">
@@ -26,21 +26,21 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: ''
     },
     country: {
       type: String,
-      default: ""
+      default: ''
     },
-     domain: {
+    domain: {
       type: String,
-      default: ""
+      default: ''
     },
-    image:{
-        type: String
+    image: {
+      type: String
     }
   }
-};
+}
 </script>
 
 <style></style>

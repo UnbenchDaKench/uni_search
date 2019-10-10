@@ -12,7 +12,9 @@ export default new Vuex.Store({
     canada: [],
     usa: [],
     china: [],
-    load_number: 3
+    load_number: 3,
+    load_number_usa: 3,
+    load_number_china: 3
   },
   mutations: {
     LOAD_UNIVERSITIES (state) {
@@ -35,14 +37,30 @@ export default new Vuex.Store({
       for (var i = 0; i < state.all_universities.length; i++) {
         if (state.all_universities[i].country === 'Canada') {
           state.canada.push(state.all_universities[i])
+        } else if (state.all_universities[i].country === 'United States') {
+          state.usa.push(state.all_universities[i])
+        } else if (state.all_universities[i].country === 'China') {
+          state.china.push(state.all_universities[i])
         }
       }
     },
-    LOAD_MORE_UNIS (state) {
-      state.load_number += 6
+    LOAD_MORE_UNIS_CANADA (state, country) {
+      state.load_number += 3
     },
-    LOAD_LESS_UNIS (state) {
-      state.load_number -= 6
+    LOAD_LESS_UNIS_CANADA (state) {
+      state.load_number -= 3
+    },
+    LOAD_MORE_UNIS_USA (state, country) {
+      state.load_number_usa += 3
+    },
+    LOAD_LESS_UNIS_USA (state) {
+      state.load_number_usa -= 3
+    },
+    LOAD_MORE_UNIS_CHINA (state, country) {
+      state.load_number_china += 3
+    },
+    LOAD_LESS_UNIS_CHINA (state) {
+      state.load_number_china -= 3
     }
   },
 
@@ -69,7 +87,7 @@ export default new Vuex.Store({
           .then(res => {
             const token = res.data.token
             localStorage.setItem('token', token)
-            commit("LOGIN", token)
+            commit('LOGIN', token)
             resolve(true)
           }).catch(err => {
             reject(err)
@@ -85,11 +103,23 @@ export default new Vuex.Store({
     loadByCountry ({ commit }) {
       commit('LOAD_BY_COUNTRY')
     },
-    loadMore ({ commit }) {
-      commit('LOAD_MORE_UNIS')
+    loadMore ({ commit, payload }) {
+      commit('LOAD_MORE_UNIS_CANADA', payload)
     },
-    loadLess ({ commit }) {
-      commit('LOAD_LESS_UNIS')
+    loadLess ({ commit, payload }) {
+      commit('LOAD_LESS_UNIS_CANADA', payload)
+    },
+    loadMoreUsa ({ commit, payload }) {
+      commit('LOAD_MORE_UNIS_USA', payload)
+    },
+    loadLessUsa ({ commit, payload }) {
+      commit('LOAD_LESS_UNIS_USA', payload)
+    },
+    loadMoreChina ({ commit, payload }) {
+      commit('LOAD_MORE_UNIS_CHINA', payload)
+    },
+    loadLessChina ({ commit, payload }) {
+      commit('LOAD_LESS_UNIS_CHINA', payload)
     }
 
   }
