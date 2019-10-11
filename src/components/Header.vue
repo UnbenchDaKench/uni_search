@@ -4,10 +4,9 @@
       <v-btn text to="/">Uni Search</v-btn>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-flex xs12 sm6 md4>
-      <v-text-field label="search product" outline append-icon="search"></v-text-field>
+    <v-flex md2 class="mt-5">
+      <v-text-field class="ml-4" v-model="school" label="search by:" solo append-icon></v-text-field>
     </v-flex>
-    <v-spacer></v-spacer>
     <span v-if="loggedIn">
       <v-btn text @click="logout">Logout</v-btn>
     </span>
@@ -16,20 +15,39 @@
       <v-btn text to="/signup">Sign up</v-btn>
     </span>
     <v-btn text to="/about">Collection</v-btn>
+    <span class="pb-4" @click="lightSwitch">
+      <v-btn class disabled text>
+        <v-switch class="pt-3" v-model="darkstate" :label="themeState"></v-switch>
+      </v-btn>
+    </span>
   </v-app-bar>
 </template>
 
 <script>
 import { mapState } from "vuex";
 export default {
+  data() {
+    return {
+      school: ""
+    };
+  },
   computed: {
     loggedIn() {
       return this.$store.getters.loggedIn;
+    },
+     themeState() {
+      return this.$vuetify.theme.dark ? "Dark Mode" : "Light Mode";
+    },
+    darkstate() {
+      return this.$vuetify.theme.dark;
     }
   },
   methods: {
     logout() {
       this.$store.dispatch("logout").then(this.$router.push("/"));
+    },
+     lightSwitch() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
     }
   }
 };

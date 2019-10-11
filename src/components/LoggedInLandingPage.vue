@@ -2,6 +2,7 @@
   <div class="justify-center">
     <h1 class="text-center">Welcome {{username}}</h1>
     <v-layout row wrap justify-center>
+      
       <v-flex md3 ma-10 pa-6 v-for="(item,index) in userBasedCountry.slice(0, 9)" :key="index">
         <SchoolCard :title="item.name" :domain="item.web_pages[0]" :country="item.country" :image="flagNation" />
       </v-flex>

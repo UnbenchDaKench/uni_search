@@ -10,12 +10,92 @@ export default new Vuex.Store({
     nationality: localStorage.getItem('nationality') || null,
     token: localStorage.getItem('token') || null,
     all_universities: [],
-    canada: [],
-    usa: [],
-    china: [],
-    load_number: 3,
-    load_number_usa: 3,
-    load_number_china: 3,
+    topRatedSchools: [
+      {
+        'web_pages': [
+          'http://www.mcgill.ca/'
+        ],
+        'name': 'McGill University',
+        'alpha_two_code': 'CA',
+        'state-province': 'Quebec',
+        'domains': [
+          'mcgill.ca'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/Canada.jpg',
+
+        'country': 'Canada'
+      },
+      {
+        'web_pages': [
+          'http://www.stanford.edu/'
+        ],
+        'name': 'Stanford University',
+        'alpha_two_code': 'US',
+        'state-province': 'CA',
+        'domains': [
+          'stanford.edu'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/United_States.jpg',
+        'country': 'United States'
+      },
+      {
+        'web_pages': [
+          'http://www.aup.fr/'
+        ],
+        'name': 'American University of Paris',
+        'alpha_two_code': 'FR',
+        'state-province': null,
+        'domains': [
+          'aup.fr'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/France.jpg',
+
+        'country': 'France'
+      },
+      {
+        'web_pages': [
+          'http://www.princeton.edu/'
+        ],
+        'name': 'Princeton University',
+        'alpha_two_code': 'US',
+        'state-province': 'Un',
+        'domains': [
+          'princeton.edu'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/United_States.jpg',
+
+        'country': 'United States'
+      },
+      {
+        'web_pages': [
+          'http://www.up.ac.za/'
+        ],
+        'name': 'University of Pretoria',
+        'alpha_two_code': 'ZA',
+        'state-province': null,
+        'domains': [
+          'up.ac.za'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/South_Africa.jpg',
+
+        'country': 'South Africa'
+      },
+      {
+        'web_pages': [
+          'http://www.ubc.ca/'
+        ],
+        'name': 'University of British Columbia',
+        'alpha_two_code': 'CA',
+        'state-province': 'BC',
+        'domains': [
+          'ubc.ca'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/Canada.jpg',
+
+        'country': 'Canada'
+      }
+
+    ],
     userBasedCountry: [],
     flags: {},
     flagNation: null
@@ -28,11 +108,7 @@ export default new Vuex.Store({
       state.flags = require('./data/flags.json')
       state.flagNation = state.flags[state.nationality]
     },
-    SIGNUPERROR (state, message) {
-      if (message === 'Request failed with status code 409') {
-        state.exists = true
-      }
-    },
+
     LOGIN (state, res) {
       state.token = res.token
       state.username = res.username
@@ -61,24 +137,6 @@ export default new Vuex.Store({
           state.userBasedCountry.push(state.all_universities[i])
         }
       }
-    },
-    LOAD_MORE_UNIS_CANADA (state, country) {
-      state.load_number += 3
-    },
-    LOAD_LESS_UNIS_CANADA (state) {
-      state.load_number -= 3
-    },
-    LOAD_MORE_UNIS_USA (state, country) {
-      state.load_number_usa += 3
-    },
-    LOAD_LESS_UNIS_USA (state) {
-      state.load_number_usa -= 3
-    },
-    LOAD_MORE_UNIS_CHINA (state, country) {
-      state.load_number_china += 3
-    },
-    LOAD_LESS_UNIS_CHINA (state) {
-      state.load_number_china -= 3
     }
   },
 
@@ -131,24 +189,6 @@ export default new Vuex.Store({
     },
     loadByCountryUser ({ commit }, country) {
       commit('LOAD_BY_COUNTRY_USER', country)
-    },
-    loadMore ({ commit, payload }) {
-      commit('LOAD_MORE_UNIS_CANADA', payload)
-    },
-    loadLess ({ commit, payload }) {
-      commit('LOAD_LESS_UNIS_CANADA', payload)
-    },
-    loadMoreUsa ({ commit, payload }) {
-      commit('LOAD_MORE_UNIS_USA', payload)
-    },
-    loadLessUsa ({ commit, payload }) {
-      commit('LOAD_LESS_UNIS_USA', payload)
-    },
-    loadMoreChina ({ commit, payload }) {
-      commit('LOAD_MORE_UNIS_CHINA', payload)
-    },
-    loadLessChina ({ commit, payload }) {
-      commit('LOAD_LESS_UNIS_CHINA', payload)
     }
 
   }
