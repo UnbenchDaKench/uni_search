@@ -6,32 +6,119 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    exists: false,
+    username: localStorage.getItem('username') || null,
+    nationality: localStorage.getItem('nationality') || null,
     token: localStorage.getItem('token') || null,
     all_universities: [],
-    canada: [],
-    usa: [],
-    china: [],
-    load_number: 3,
-    load_number_usa: 3,
-    load_number_china: 3
+    topRatedSchools: [
+      {
+        'web_pages': [
+          'http://www.mcgill.ca/'
+        ],
+        'name': 'McGill University',
+        'alpha_two_code': 'CA',
+        'state-province': 'Quebec',
+        'domains': [
+          'mcgill.ca'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/Canada.jpg',
+
+        'country': 'Canada'
+      },
+      {
+        'web_pages': [
+          'http://www.stanford.edu/'
+        ],
+        'name': 'Stanford University',
+        'alpha_two_code': 'US',
+        'state-province': 'CA',
+        'domains': [
+          'stanford.edu'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/United_States.jpg',
+        'country': 'United States'
+      },
+      {
+        'web_pages': [
+          'http://www.aup.fr/'
+        ],
+        'name': 'American University of Paris',
+        'alpha_two_code': 'FR',
+        'state-province': null,
+        'domains': [
+          'aup.fr'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/France.jpg',
+
+        'country': 'France'
+      },
+      {
+        'web_pages': [
+          'http://www.princeton.edu/'
+        ],
+        'name': 'Princeton University',
+        'alpha_two_code': 'US',
+        'state-province': 'Un',
+        'domains': [
+          'princeton.edu'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/United_States.jpg',
+
+        'country': 'United States'
+      },
+      {
+        'web_pages': [
+          'http://www.up.ac.za/'
+        ],
+        'name': 'University of Pretoria',
+        'alpha_two_code': 'ZA',
+        'state-province': null,
+        'domains': [
+          'up.ac.za'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/South_Africa.jpg',
+
+        'country': 'South Africa'
+      },
+      {
+        'web_pages': [
+          'http://www.ubc.ca/'
+        ],
+        'name': 'University of British Columbia',
+        'alpha_two_code': 'CA',
+        'state-province': 'BC',
+        'domains': [
+          'ubc.ca'
+        ],
+        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/Canada.jpg',
+
+        'country': 'Canada'
+      }
+
+    ],
+    userBasedCountry: [],
+    flags: {},
+    flagNation: null
   },
   mutations: {
     LOAD_UNIVERSITIES (state) {
       state.all_universities = require('./data/NewUni.json')
     },
-    SIGNUPERROR (state, message) {
-      if (message === 'Request failed with status code 409') {
-        state.exists = true
-      }
+    LOAD_FLAG (state, nation) {
+      state.flags = require('./data/flags.json')
+      state.flagNation = state.flags[state.nationality]
     },
+
     LOGIN (state, res) {
       state.token = res.token
+      state.username = res.username
     },
     LOGOUT (state) {
       state.login = false
       localStorage.removeItem('token')
       state.token = null
+      state.username = null
+      state.nationality = null
     },
     LOAD_BY_COUNTRY (state) {
       for (var i = 0; i < state.all_universities.length; i++) {
@@ -44,23 +131,12 @@ export default new Vuex.Store({
         }
       }
     },
-    LOAD_MORE_UNIS_CANADA (state, country) {
-      state.load_number += 3
-    },
-    LOAD_LESS_UNIS_CANADA (state) {
-      state.load_number -= 3
-    },
-    LOAD_MORE_UNIS_USA (state, country) {
-      state.load_number_usa += 3
-    },
-    LOAD_LESS_UNIS_USA (state) {
-      state.load_number_usa -= 3
-    },
-    LOAD_MORE_UNIS_CHINA (state, country) {
-      state.load_number_china += 3
-    },
-    LOAD_LESS_UNIS_CHINA (state) {
-      state.load_number_china -= 3
+    LOAD_BY_COUNTRY_USER (state, country) {
+      for (var i = 0; i < state.all_universities.length; i++) {
+        if (state.all_universities[i].country === this.state.nationality) {
+          state.userBasedCountry.push(state.all_universities[i])
+        }
+      }
     }
   },
 
@@ -86,8 +162,13 @@ export default new Vuex.Store({
         axios.post('/api/user/login', user)
           .then(res => {
             const token = res.data.token
+            const username = res.data.username
+            const nationality = res.data.nationality
+            console.log(res.data)
+            localStorage.setItem('nationality', nationality)
+            localStorage.setItem('username', username)
             localStorage.setItem('token', token)
-            commit('LOGIN', token)
+            commit('LOGIN', res.data)
             resolve(true)
           }).catch(err => {
             reject(err)
@@ -100,26 +181,14 @@ export default new Vuex.Store({
     loadUniversities ({ commit }) {
       commit('LOAD_UNIVERSITIES')
     },
+    loadFlags ({ commit }, nation) {
+      commit('LOAD_FLAG', nation)
+    },
     loadByCountry ({ commit }) {
       commit('LOAD_BY_COUNTRY')
     },
-    loadMore ({ commit, payload }) {
-      commit('LOAD_MORE_UNIS_CANADA', payload)
-    },
-    loadLess ({ commit, payload }) {
-      commit('LOAD_LESS_UNIS_CANADA', payload)
-    },
-    loadMoreUsa ({ commit, payload }) {
-      commit('LOAD_MORE_UNIS_USA', payload)
-    },
-    loadLessUsa ({ commit, payload }) {
-      commit('LOAD_LESS_UNIS_USA', payload)
-    },
-    loadMoreChina ({ commit, payload }) {
-      commit('LOAD_MORE_UNIS_CHINA', payload)
-    },
-    loadLessChina ({ commit, payload }) {
-      commit('LOAD_LESS_UNIS_CHINA', payload)
+    loadByCountryUser ({ commit }, country) {
+      commit('LOAD_BY_COUNTRY_USER', country)
     }
 
   }

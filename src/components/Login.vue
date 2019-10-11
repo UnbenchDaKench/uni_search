@@ -39,6 +39,7 @@ export default {
         })
         .then(success => {
           this.$router.push("/");
+          window.history.go()
         })
         .catch(errorLogin => {
           this.errorLogin = true;
