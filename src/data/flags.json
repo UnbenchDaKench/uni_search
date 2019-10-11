@@ -1,5 +1,399 @@
 {
-    "United_States": "http://sciencekids.co.nz/images/pictures/flags680/United_States.jpg",
+    "Afghanistan": "http://sciencekids.co.nz/images/pictures/flags680/Afghanistan.jpg",
+  
+    "Albania": "http://sciencekids.co.nz/images/pictures/flags680/Albania.jpg",
+  
+    "Algeria": "http://sciencekids.co.nz/images/pictures/flags680/Algeria.jpg",
+  
+    "Andorra": "http://sciencekids.co.nz/images/pictures/flags680/Andorra.jpg",
+  
+    "Angola": "http://sciencekids.co.nz/images/pictures/flags680/Angola.jpg",
+  
+    "Anguilla": "http://sciencekids.co.nz/images/pictures/flags680/Anguilla.jpg",
+  
+    "Antigua_and_Barbuda": "http://sciencekids.co.nz/images/pictures/flags680/Antigua_and_Barbuda.jpg",
+  
+    "Argentina": "http://sciencekids.co.nz/images/pictures/flags680/Argentina.jpg",
+  
+    "Armenia": "http://sciencekids.co.nz/images/pictures/flags680/Armenia.jpg",
+  
+    "Aruba": "http://sciencekids.co.nz/images/pictures/flags680/Aruba.jpg",
+  
+    "Australia": "http://sciencekids.co.nz/images/pictures/flags680/Australia.jpg",
+  
+    "Austria": "http://sciencekids.co.nz/images/pictures/flags680/Austria.jpg",
+  
+    "Azerbaijan": "http://sciencekids.co.nz/images/pictures/flags680/Azerbaijan.jpg",
+  
+    "Bahamas": "http://sciencekids.co.nz/images/pictures/flags680/Bahamas.jpg",
+  
+    "Bahrain": "http://sciencekids.co.nz/images/pictures/flags680/Bahrain.jpg",
+  
+    "Bangladesh": "http://sciencekids.co.nz/images/pictures/flags680/Bangladesh.jpg",
+  
+    "Barbados": "http://sciencekids.co.nz/images/pictures/flags680/Barbados.jpg",
+  
+    "Belarus": "http://sciencekids.co.nz/images/pictures/flags680/Belarus.jpg",
+  
+    "Belgium": "http://sciencekids.co.nz/images/pictures/flags680/Belgium.jpg",
+  
+    "Belize": "http://sciencekids.co.nz/images/pictures/flags680/Belize.jpg",
+  
+    "Benin": "http://sciencekids.co.nz/images/pictures/flags680/Benin.jpg",
+  
+    "Bermuda": "http://sciencekids.co.nz/images/pictures/flags680/Bermuda.jpg",
+  
+    "Bhutan": "http://sciencekids.co.nz/images/pictures/flags680/Bhutan.jpg",
+  
+    "Bolivia": "http://sciencekids.co.nz/images/pictures/flags680/Bolivia.jpg",
+  
+    "Bosnia_and_Herzegovina": "http://sciencekids.co.nz/images/pictures/flags680/Bosnia_and_Herzegovina.jpg",
+  
+    "Botswana": "http://sciencekids.co.nz/images/pictures/flags680/Botswana.jpg",
+  
+    "Brazil": "http://sciencekids.co.nz/images/pictures/flags680/Brazil.jpg",
+  
+    "British_Virgin Islands": "http://sciencekids.co.nz/images/pictures/flags680/British_Virgin Islands.jpg",
+  
+    "Brunei": "http://sciencekids.co.nz/images/pictures/flags680/Brunei.jpg",
+  
+    "Bulgaria": "http://sciencekids.co.nz/images/pictures/flags680/Bulgaria.jpg",
+  
+    "Burkina_Faso": "http://sciencekids.co.nz/images/pictures/flags680/Burkina_Faso.jpg",
+  
+    "Burundi": "http://sciencekids.co.nz/images/pictures/flags680/Burundi.jpg",
+  
+    "Cambodia": "http://sciencekids.co.nz/images/pictures/flags680/Cambodia.jpg",
+  
+    "Cameroon": "http://sciencekids.co.nz/images/pictures/flags680/Cameroon.jpg",
+  
     "Canada": "http://sciencekids.co.nz/images/pictures/flags680/Canada.jpg",
-    "China": "http://sciencekids.co.nz/images/pictures/flags680/China.jpg"
-}
+  
+    "Cape_Verde": "http://sciencekids.co.nz/images/pictures/flags680/Cape_Verde.jpg",
+  
+    "Cayman_Islands": "http://sciencekids.co.nz/images/pictures/flags680/Cayman_Islands.jpg",
+  
+    "Chad": "http://sciencekids.co.nz/images/pictures/flags680/Chad.jpg",
+  
+    "Chile": "http://sciencekids.co.nz/images/pictures/flags680/Chile.jpg",
+  
+    "China": "http://sciencekids.co.nz/images/pictures/flags680/China.jpg",
+  
+    "Colombia": "http://sciencekids.co.nz/images/pictures/flags680/Colombia.jpg",
+  
+    "Congo": "http://sciencekids.co.nz/images/pictures/flags680/Congo.jpg",
+  
+    "Cook_Islands": "http://sciencekids.co.nz/images/pictures/flags680/Cook_Islands.jpg",
+  
+    "Costa_Rica": "http://sciencekids.co.nz/images/pictures/flags680/Costa_Rica.jpg",
+  
+    "Ivorycoast": "http://sciencekids.co.nz/images/pictures/flags680/Ivorycoast.jpg",
+  
+    "Croatia": "http://sciencekids.co.nz/images/pictures/flags680/Croatia.jpg",
+  
+    "Cuba": "http://sciencekids.co.nz/images/pictures/flags680/Cuba.jpg",
+  
+    "Cyprus": "http://sciencekids.co.nz/images/pictures/flags680/Cyprus.jpg",
+  
+    "Czech_Republic": "http://sciencekids.co.nz/images/pictures/flags680/Czech_Republic.jpg",
+  
+    "Denmark": "http://sciencekids.co.nz/images/pictures/flags680/Denmark.jpg",
+  
+    "Djibouti": "http://sciencekids.co.nz/images/pictures/flags680/Djibouti.jpg",
+  
+    "Dominica": "http://sciencekids.co.nz/images/pictures/flags680/Dominica.jpg",
+  
+    "Dominican_Republic": "http://sciencekids.co.nz/images/pictures/flags680/Dominican_Republic.jpg",
+  
+    "Ecuador": "http://sciencekids.co.nz/images/pictures/flags680/Ecuador.jpg",
+  
+    "Egypt": "http://sciencekids.co.nz/images/pictures/flags680/Egypt.jpg",
+  
+    "El Salvador": "http://sciencekids.co.nz/images/pictures/flags680/El Salvador.jpg",
+  
+    "Equatorial_Guinea": "http://sciencekids.co.nz/images/pictures/flags680/Equatorial_Guinea.jpg",
+  
+    "Estonia": "http://sciencekids.co.nz/images/pictures/flags680/Estonia.jpg",
+  
+    "Ethiopia": "http://sciencekids.co.nz/images/pictures/flags680/Ethiopia.jpg",
+  
+    "Falkland Islands": "http://sciencekids.co.nz/images/pictures/flags680/Falkland Islands.jpg",
+  
+    "Fiji": "http://sciencekids.co.nz/images/pictures/flags680/Fiji.jpg",
+  
+    "Finland": "http://sciencekids.co.nz/images/pictures/flags680/Finland.jpg",
+  
+    "France": "http://sciencekids.co.nz/images/pictures/flags680/France.jpg",
+  
+    "Gabon": "http://sciencekids.co.nz/images/pictures/flags680/Gabon.jpg",
+  
+    "Gambia": "http://sciencekids.co.nz/images/pictures/flags680/Gambia.jpg",
+  
+    "Georgia": "http://sciencekids.co.nz/images/pictures/flags680/Georgia.jpg",
+  
+    "Germany": "http://sciencekids.co.nz/images/pictures/flags680/Germany.jpg",
+  
+    "Ghana": "http://sciencekids.co.nz/images/pictures/flags680/Ghana.jpg",
+  
+    "Gibraltar": "http://sciencekids.co.nz/images/pictures/flags680/Gibraltar.jpg",
+  
+    "Greece": "http://sciencekids.co.nz/images/pictures/flags680/Greece.jpg",
+  
+    "Greenland": "http://sciencekids.co.nz/images/pictures/flags680/Greenland.jpg",
+  
+    "Grenada": "http://sciencekids.co.nz/images/pictures/flags680/Grenada.jpg",
+  
+    "Guam": "http://sciencekids.co.nz/images/pictures/flags680/Guam.jpg",
+  
+    "Guatemala": "http://sciencekids.co.nz/images/pictures/flags680/Guatemala.jpg",
+  
+    "Guernsey": "http://sciencekids.co.nz/images/pictures/flags680/Guernsey.jpg",
+  
+    "Guinea": "http://sciencekids.co.nz/images/pictures/flags680/Guinea.jpg",
+  
+    "Guinea_Bissau": "http://sciencekids.co.nz/images/pictures/flags680/Guinea_Bissau.jpg",
+  
+    "Guyana": "http://sciencekids.co.nz/images/pictures/flags680/Guyana.jpg",
+  
+    "Haiti": "http://sciencekids.co.nz/images/pictures/flags680/Haiti.jpg",
+  
+    "Honduras": "http://sciencekids.co.nz/images/pictures/flags680/Honduras.jpg",
+  
+    "Hong_Kong": "http://sciencekids.co.nz/images/pictures/flags680/Hong_Kong.jpg",
+  
+    "Hungary": "http://sciencekids.co.nz/images/pictures/flags680/Hungary.jpg",
+  
+    "Iceland": "http://sciencekids.co.nz/images/pictures/flags680/Iceland.jpg",
+  
+    "India": "http://sciencekids.co.nz/images/pictures/flags680/India.jpg",
+  
+    "Indonesia": "http://sciencekids.co.nz/images/pictures/flags680/Indonesia.jpg",
+  
+    "Iran": "http://sciencekids.co.nz/images/pictures/flags680/Iran.jpg",
+  
+    "Iraq": "http://sciencekids.co.nz/images/pictures/flags680/Iraq.jpg",
+  
+    "Ireland": "http://sciencekids.co.nz/images/pictures/flags680/Ireland.jpg",
+  
+    "Israel": "http://sciencekids.co.nz/images/pictures/flags680/Israel.jpg",
+  
+    "Italy": "http://sciencekids.co.nz/images/pictures/flags680/Italy.jpg",
+  
+    "Jamaica": "http://sciencekids.co.nz/images/pictures/flags680/Jamaica.jpg",
+  
+    "Japan": "http://sciencekids.co.nz/images/pictures/flags680/Japan.jpg",
+  
+    "Jersey": "http://sciencekids.co.nz/images/pictures/flags680/Jersey.jpg",
+  
+    "Jordan": "http://sciencekids.co.nz/images/pictures/flags680/Jordan.jpg",
+  
+    "Kazakhstan": "http://sciencekids.co.nz/images/pictures/flags680/Kazakhstan.jpg",
+  
+    "Kenya": "http://sciencekids.co.nz/images/pictures/flags680/Kenya.jpg",
+  
+    "Kuwait": "http://sciencekids.co.nz/images/pictures/flags680/Kuwait.jpg",
+  
+    "Kyrgyz Republic": "http://sciencekids.co.nz/images/pictures/flags680/Kyrgyz Republic.jpg",
+  
+    "Laos": "http://sciencekids.co.nz/images/pictures/flags680/Laos.jpg",
+  
+    "Latvia": "http://sciencekids.co.nz/images/pictures/flags680/Latvia.jpg",
+  
+    "Lebanon": "http://sciencekids.co.nz/images/pictures/flags680/Lebanon.jpg",
+  
+    "Lesotho": "http://sciencekids.co.nz/images/pictures/flags680/Lesotho.jpg",
+  
+    "Liberia": "http://sciencekids.co.nz/images/pictures/flags680/Liberia.jpg",
+  
+    "Libya": "http://sciencekids.co.nz/images/pictures/flags680/Libya.jpg",
+  
+    "Liechtenstein": "http://sciencekids.co.nz/images/pictures/flags680/Liechtenstein.jpg",
+  
+    "Lithuania": "http://sciencekids.co.nz/images/pictures/flags680/Lithuania.jpg",
+  
+    "Luxembourg": "http://sciencekids.co.nz/images/pictures/flags680/Luxembourg.jpg",
+  
+    "Macau": "http://sciencekids.co.nz/images/pictures/flags680/Macau.jpg",
+  
+    "Macedonia": "http://sciencekids.co.nz/images/pictures/flags680/Macedonia.jpg",
+  
+    "Madagascar": "http://sciencekids.co.nz/images/pictures/flags680/Madagascar.jpg",
+  
+    "Malawi": "http://sciencekids.co.nz/images/pictures/flags680/Malawi.jpg",
+  
+    "Malaysia": "http://sciencekids.co.nz/images/pictures/flags680/Malaysia.jpg",
+  
+    "Maldives": "http://sciencekids.co.nz/images/pictures/flags680/Maldives.jpg",
+  
+    "Mali": "http://sciencekids.co.nz/images/pictures/flags680/Mali.jpg",
+  
+    "Malta": "http://sciencekids.co.nz/images/pictures/flags680/Malta.jpg",
+  
+    "Mauritania": "http://sciencekids.co.nz/images/pictures/flags680/Mauritania.jpg",
+  
+    "Mauritius": "http://sciencekids.co.nz/images/pictures/flags680/Mauritius.jpg",
+  
+    "Mexico": "http://sciencekids.co.nz/images/pictures/flags680/Mexico.jpg",
+  
+    "Moldova": "http://sciencekids.co.nz/images/pictures/flags680/Moldova.jpg",
+  
+    "Monaco": "http://sciencekids.co.nz/images/pictures/flags680/Monaco.jpg",
+  
+    "Mongolia": "http://sciencekids.co.nz/images/pictures/flags680/Mongolia.jpg",
+  
+    "Montenegro": "http://sciencekids.co.nz/images/pictures/flags680/Montenegro.jpg",
+  
+    "Montserrat": "http://sciencekids.co.nz/images/pictures/flags680/Montserrat.jpg",
+  
+    "Morocco": "http://sciencekids.co.nz/images/pictures/flags680/Morocco.jpg",
+  
+    "Mozambique": "http://sciencekids.co.nz/images/pictures/flags680/Mozambique.jpg",
+  
+    "Namibia": "http://sciencekids.co.nz/images/pictures/flags680/Namibia.jpg",
+  
+    "Nepal": "http://sciencekids.co.nz/images/pictures/flags680/Nepal.jpg",
+  
+    "Netherlands": "http://sciencekids.co.nz/images/pictures/flags680/Netherlands.jpg",
+  
+    "Netherlands Antilles": "http://sciencekids.co.nz/images/pictures/flags680/Netherlands Antilles.jpg",
+  
+    "New_Caledonia": "http://sciencekids.co.nz/images/pictures/flags680/New_Caledonia.jpg",
+  
+    "New Zealand": "http://sciencekids.co.nz/images/pictures/flags680/New Zealand.jpg",
+  
+    "Nicaragua": "http://sciencekids.co.nz/images/pictures/flags680/Nicaragua.jpg",
+  
+    "Niger": "http://sciencekids.co.nz/images/pictures/flags680/Niger.jpg",
+  
+    "Nigeria": "http://sciencekids.co.nz/images/pictures/flags680/Nigeria.jpg",
+  
+    "Norway": "http://sciencekids.co.nz/images/pictures/flags680/Norway.jpg",
+  
+    "Oman": "http://sciencekids.co.nz/images/pictures/flags680/Oman.jpg",
+  
+    "Pakistan": "http://sciencekids.co.nz/images/pictures/flags680/Pakistan.jpg",
+  
+    "Palestine": "http://sciencekids.co.nz/images/pictures/flags680/Palestine.jpg",
+  
+    "Panama": "http://sciencekids.co.nz/images/pictures/flags680/Panama.jpg",
+  
+    "Papua New_Guinea": "http://sciencekids.co.nz/images/pictures/flags680/Papua New_Guinea.jpg",
+  
+    "Paraguay": "http://sciencekids.co.nz/images/pictures/flags680/Paraguay.jpg",
+  
+    "Peru": "http://sciencekids.co.nz/images/pictures/flags680/Peru.jpg",
+  
+    "Philippines": "http://sciencekids.co.nz/images/pictures/flags680/Philippines.jpg",
+  
+    "Poland": "http://sciencekids.co.nz/images/pictures/flags680/Poland.jpg",
+  
+    "Portugal": "http://sciencekids.co.nz/images/pictures/flags680/Portugal.jpg",
+  
+    "Puerto Rico": "http://sciencekids.co.nz/images/pictures/flags680/Puerto Rico.jpg",
+  
+    "Qatar": "http://sciencekids.co.nz/images/pictures/flags680/Qatar.jpg",
+  
+    "Reunion": "http://sciencekids.co.nz/images/pictures/flags680/Reunion.jpg",
+  
+    "Romania": "http://sciencekids.co.nz/images/pictures/flags680/Romania.jpg",
+  
+    "Russia": "http://sciencekids.co.nz/images/pictures/flags680/Russia.jpg",
+  
+    "Rwanda": "http://sciencekids.co.nz/images/pictures/flags680/Rwanda.jpg",
+  
+    "Miquelon": "http://sciencekids.co.nz/images/pictures/flags680/Miquelon.jpg",
+  
+    "Samoa": "http://sciencekids.co.nz/images/pictures/flags680/Samoa.jpg",
+  
+    "San_Marino": "http://sciencekids.co.nz/images/pictures/flags680/San_Marino.jpg",
+  
+    "Satellite": "http://sciencekids.co.nz/images/pictures/flags680/Satellite.jpg",
+  
+    "Saudi_Arabia": "http://sciencekids.co.nz/images/pictures/flags680/Saudi_Arabia.jpg",
+  
+    "Senegal": "http://sciencekids.co.nz/images/pictures/flags680/Senegal.jpg",
+  
+    "Serbia": "http://sciencekids.co.nz/images/pictures/flags680/Serbia.jpg",
+  
+    "Seychelles": "http://sciencekids.co.nz/images/pictures/flags680/Seychelles.jpg",
+  
+    "Sierra Leone": "http://sciencekids.co.nz/images/pictures/flags680/Sierra Leone.jpg",
+  
+    "Singapore": "http://sciencekids.co.nz/images/pictures/flags680/Singapore.jpg",
+  
+    "Slovakia": "http://sciencekids.co.nz/images/pictures/flags680/Slovakia.jpg",
+  
+    "Slovenia": "http://sciencekids.co.nz/images/pictures/flags680/Slovenia.jpg",
+  
+    "South_Africa": "http://sciencekids.co.nz/images/pictures/flags680/South_Africa.jpg",
+  
+    "South_Korea": "http://sciencekids.co.nz/images/pictures/flags680/South_Korea.jpg",
+  
+    "Spain": "http://sciencekids.co.nz/images/pictures/flags680/Spain.jpg",
+  
+    "Sri_Lanka": "http://sciencekids.co.nz/images/pictures/flags680/Sri_Lanka.jpg",
+  
+    "Saint_and_Kitts_and_Nevis": "http://sciencekids.co.nz/images/pictures/flags680/Saint_and_Kitts_and_Nevis.jpg",
+  
+    "Saint_Vincent": "http://sciencekids.co.nz/images/pictures/flags680/Saint_Vincent.jpg",
+  
+    "Saint_Lucia": "http://sciencekids.co.nz/images/pictures/flags680/Saint_Lucia.jpg",
+  
+    "Sudan": "http://sciencekids.co.nz/images/pictures/flags680/Sudan.jpg",
+  
+    "Suriname": "http://sciencekids.co.nz/images/pictures/flags680/Suriname.jpg",
+  
+    "Swaziland": "http://sciencekids.co.nz/images/pictures/flags680/Swaziland.jpg",
+  
+    "Sweden": "http://sciencekids.co.nz/images/pictures/flags680/Sweden.jpg",
+  
+    "Switzerland": "http://sciencekids.co.nz/images/pictures/flags680/Switzerland.jpg",
+  
+    "Syria": "http://sciencekids.co.nz/images/pictures/flags680/Syria.jpg",
+  
+    "Taiwan": "http://sciencekids.co.nz/images/pictures/flags680/Taiwan.jpg",
+  
+    "Tajikistan": "http://sciencekids.co.nz/images/pictures/flags680/Tajikistan.jpg",
+  
+    "Tanzania": "http://sciencekids.co.nz/images/pictures/flags680/Tanzania.jpg",
+  
+    "Thailand": "http://sciencekids.co.nz/images/pictures/flags680/Thailand.jpg",
+  
+    "East_Timor": "http://sciencekids.co.nz/images/pictures/flags680/East_Timor.jpg",
+  
+    "Togo": "http://sciencekids.co.nz/images/pictures/flags680/Togo.jpg",
+  
+    "Tonga": "http://sciencekids.co.nz/images/pictures/flags680/Tonga.jpg",
+  
+    "Trinidad_and_Tobago": "http://sciencekids.co.nz/images/pictures/flags680/Trinidad_and_Tobago.jpg",
+  
+    "Tunisia": "http://sciencekids.co.nz/images/pictures/flags680/Tunisia.jpg",
+  
+    "Turkey": "http://sciencekids.co.nz/images/pictures/flags680/Turkey.jpg",
+  
+    "Turkmenistan": "http://sciencekids.co.nz/images/pictures/flags680/Turkmenistan.jpg",
+  
+    "Uganda": "http://sciencekids.co.nz/images/pictures/flags680/Uganda.jpg",
+  
+    "Ukraine": "http://sciencekids.co.nz/images/pictures/flags680/Ukraine.jpg",
+  
+    "United_Arab_Emirates": "http://sciencekids.co.nz/images/pictures/flags680/United_Arab_Emirates.jpg",
+  
+    "United_Kingdom": "http://sciencekids.co.nz/images/pictures/flags680/United_Kingdom.jpg",
+  
+    "United_States": "http://sciencekids.co.nz/images/pictures/flags680/United_States.jpg",
+  
+    "Uruguay": "http://sciencekids.co.nz/images/pictures/flags680/Uruguay.jpg",
+  
+    "Uzbekistan": "http://sciencekids.co.nz/images/pictures/flags680/Uzbekistan.jpg",
+  
+    "Venezuela": "http://sciencekids.co.nz/images/pictures/flags680/Venezuela.jpg",
+  
+    "Vietnam": "http://sciencekids.co.nz/images/pictures/flags680/Vietnam.jpg",
+  
+    "Yemen": "http://sciencekids.co.nz/images/pictures/flags680/Yemen.jpg",
+  
+    "Zambia": "http://sciencekids.co.nz/images/pictures/flags680/Zambia.jpg",
+  
+    "Zimbabwe": "http://sciencekids.co.nz/images/pictures/flags680/Zimbabwe.jpg"
+  }

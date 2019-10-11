@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    exists: false,
+    username: localStorage.getItem('username') || null,
+    nationality: localStorage.getItem('nationality') || null,
     token: localStorage.getItem('token') || null,
     all_universities: [],
     canada: [],
@@ -14,11 +15,18 @@ export default new Vuex.Store({
     china: [],
     load_number: 3,
     load_number_usa: 3,
-    load_number_china: 3
+    load_number_china: 3,
+    userBasedCountry: [],
+    flags: {},
+    flagNation: null
   },
   mutations: {
     LOAD_UNIVERSITIES (state) {
       state.all_universities = require('./data/NewUni.json')
+    },
+    LOAD_FLAG (state, nation) {
+      state.flags = require('./data/flags.json')
+      state.flagNation = state.flags[state.nationality]
     },
     SIGNUPERROR (state, message) {
       if (message === 'Request failed with status code 409') {
@@ -27,11 +35,14 @@ export default new Vuex.Store({
     },
     LOGIN (state, res) {
       state.token = res.token
+      state.username = res.username
     },
     LOGOUT (state) {
       state.login = false
       localStorage.removeItem('token')
       state.token = null
+      state.username = null
+      state.nationality = null
     },
     LOAD_BY_COUNTRY (state) {
       for (var i = 0; i < state.all_universities.length; i++) {
@@ -41,6 +52,13 @@ export default new Vuex.Store({
           state.usa.push(state.all_universities[i])
         } else if (state.all_universities[i].country === 'China') {
           state.china.push(state.all_universities[i])
+        }
+      }
+    },
+    LOAD_BY_COUNTRY_USER (state, country) {
+      for (var i = 0; i < state.all_universities.length; i++) {
+        if (state.all_universities[i].country === this.state.nationality) {
+          state.userBasedCountry.push(state.all_universities[i])
         }
       }
     },
@@ -86,8 +104,13 @@ export default new Vuex.Store({
         axios.post('/api/user/login', user)
           .then(res => {
             const token = res.data.token
+            const username = res.data.username
+            const nationality = res.data.nationality
+            console.log(res.data)
+            localStorage.setItem('nationality', nationality)
+            localStorage.setItem('username', username)
             localStorage.setItem('token', token)
-            commit('LOGIN', token)
+            commit('LOGIN', res.data)
             resolve(true)
           }).catch(err => {
             reject(err)
@@ -100,8 +123,14 @@ export default new Vuex.Store({
     loadUniversities ({ commit }) {
       commit('LOAD_UNIVERSITIES')
     },
+    loadFlags ({ commit }, nation) {
+      commit('LOAD_FLAG', nation)
+    },
     loadByCountry ({ commit }) {
       commit('LOAD_BY_COUNTRY')
+    },
+    loadByCountryUser ({ commit }, country) {
+      commit('LOAD_BY_COUNTRY_USER', country)
     },
     loadMore ({ commit, payload }) {
       commit('LOAD_MORE_UNIS_CANADA', payload)
