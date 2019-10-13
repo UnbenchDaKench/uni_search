@@ -98,7 +98,9 @@ export default new Vuex.Store({
     ],
     userBasedCountry: [],
     flags: {},
-    flagNation: null
+    flagNation: null,
+    school: '',
+    resultArray: null
   },
   mutations: {
     LOAD_UNIVERSITIES (state) {
@@ -137,6 +139,12 @@ export default new Vuex.Store({
           state.userBasedCountry.push(state.all_universities[i])
         }
       }
+    },
+    PERFORM_SEARCH (state, schools) {
+      state.school = schools
+    },
+    RESULT_ARRAY (state, result) {
+      state.resultArray = result
     }
   },
 
@@ -189,6 +197,12 @@ export default new Vuex.Store({
     },
     loadByCountryUser ({ commit }, country) {
       commit('LOAD_BY_COUNTRY_USER', country)
+    },
+    performSearch ({ commit }, school) {
+      commit('PERFORM_SEARCH', school)
+    },
+    resultarray ({ commit }, result) {
+      commit('RESULT_ARRAY', result)
     }
 
   }

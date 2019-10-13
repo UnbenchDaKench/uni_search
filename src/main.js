@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import '@fortawesome/fontawesome-free/css/all.css'
+import VueFuse from 'vue-fuse'
+
+Vue.use(VueFuse)
 
 Vue.config.productionTip = false
 

@@ -5,7 +5,7 @@
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-flex md2 class="mt-5">
-      <v-text-field class="ml-4" v-model="school" label="search by:" solo append-icon></v-text-field>
+    <SearchBox/>
     </v-flex>
     <span v-if="loggedIn">
       <v-btn text @click="logout">Logout</v-btn>
@@ -25,11 +25,16 @@
 
 <script>
 import { mapState } from "vuex";
+import SearchBox from './SearchBox'
+
 export default {
   data() {
     return {
       school: ""
     };
+  },
+  components: {
+    SearchBox
   },
   computed: {
     loggedIn() {
