@@ -1,5 +1,5 @@
 <template>
-  <v-footer dark height="auto">
+  <v-footer dark height="auto" fixed="">
           <v-flex class="text-lg-center">Copyright © 2019 Software Engineering Project. All rights reserved.</v-flex>
   </v-footer>
 </template>

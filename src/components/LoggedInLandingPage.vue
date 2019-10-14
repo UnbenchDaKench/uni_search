@@ -1,16 +1,7 @@
 <template>
   <div>
-    <div v-if="school.length > 0">
-      <v-layout row wrap justify-center>
-        <v-flex md3 ma-10 pa-6 v-for="(item,index) in resultArray.slice(0,9)" :key="index">
-          <SchoolCard
-            :title="item.name"
-            :domain="item.web_pages[0]"
-            :country="item.country"
-            :image="item.flag"
-          />
-        </v-flex>
-      </v-layout>
+   <div v-if="school.length > 1">
+      <Search :key="componentKey" />
     </div>
     <div v-else>
       <v-parallax
@@ -45,21 +36,33 @@
 
 <script>
 import SchoolCard from "../components/SchoolCard";
+import Search from "../components/Search";
+
 import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      nation: ''
+      nation: "",
+      componentKey: 0
     };
   },
   components: {
-    SchoolCard
+    SchoolCard,
+    Search
   },
   created() {
     this.loadUniversities();
     this.loadFlags();
     this.getSchool();
+  },
+    watch: {
+    school: function(school){
+      timeout = setTimeout(() => {
+
+        this.forceRender()
+      }, 0)
+    }
   },
   mounted() {
     this.loadByCountryUser();
@@ -83,6 +86,9 @@ export default {
     },
     getSchool() {
       this.$store.state.school;
+    },
+    forceRender() {
+      this.componentKey += 1
     }
   }
 };

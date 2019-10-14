@@ -14,7 +14,8 @@
       <v-btn text to="/login">Login</v-btn>
       <v-btn text to="/signup">Sign up</v-btn>
     </span>
-    <v-btn text to="/about">Collection</v-btn>
+    <v-btn text to="/collection">Collection</v-btn>
+    <v-btn text to="/swipe">Swipe</v-btn>
     <span class="pb-4" @click="lightSwitch">
       <v-btn class disabled text>
         <v-switch class="pt-3" v-model="darkstate" :label="themeState"></v-switch>

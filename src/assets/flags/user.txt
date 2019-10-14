@@ -1,0 +1,2 @@
+Have a profile page for the user
+dob nationality etc

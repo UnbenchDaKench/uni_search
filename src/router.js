@@ -20,9 +20,7 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-      meta: {
-        requiresAuth: true
-      }
+     
     },
     {
       path: '/login',
@@ -44,6 +42,22 @@ export default new Router({
       path: '/userhome',
       name: 'userhome',
       component: () => import(/* webpackChunkName: "about" */ './components/LoggedInLandingPage'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/swipe',
+      name: 'swipe',
+      component: () => import(/* webpackChunkName: "about" */ './components/Swipe'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/collection',
+      name: 'collection',
+      component: () => import(/* webpackChunkName: "about" */ './components/Collection'),
       meta: {
         requiresAuth: true
       }

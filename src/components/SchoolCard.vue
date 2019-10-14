@@ -37,7 +37,8 @@ export default {
       default: ''
     },
     image: {
-      type: String
+      type: String,
+      default: ''
     }
   }
 }

@@ -100,7 +100,8 @@ export default new Vuex.Store({
     flags: {},
     flagNation: null,
     school: '',
-    resultArray: null
+    resultArray: [],
+    usersChoice: []
   },
   mutations: {
     LOAD_UNIVERSITIES (state) {
@@ -145,12 +146,22 @@ export default new Vuex.Store({
     },
     RESULT_ARRAY (state, result) {
       state.resultArray = result
+    },
+    DELETE_SCHOOL (state, index) {
+      state.topRatedSchools.splice(index, 1)
+    },
+    ADD_USERS_CHOICE (state, index) {
+      state.usersChoice.push(state.topRatedSchools[index])
     }
+
   },
 
   getters: {
     loggedIn (state) {
       return state.token !== null
+    },
+    resultArray (state) {
+      return state.resultArray
     }
   },
 
@@ -203,6 +214,12 @@ export default new Vuex.Store({
     },
     resultarray ({ commit }, result) {
       commit('RESULT_ARRAY', result)
+    },
+    deleteSchool ({ commit }, index) {
+      commit('DELETE_SCHOOL', index)
+    },
+    addUsersChoice ({ commit }, index) {
+      commit('ADD_USERS_CHOICE', index)
     }
 
   }

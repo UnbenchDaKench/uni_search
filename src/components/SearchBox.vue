@@ -1,13 +1,16 @@
 <template>
   <div>
-    <v-text-field
-      v-model="school"
-      label="Search"
-      solo
-      @blur="searchResultsVisible = false"
-      @focus="searchResultsVisible = true"
-      @keydown="performSearch(school)"
-    ></v-text-field>
+    <div>
+      <v-text-field
+        v-model="school"
+        label="Search by school name"
+        solo
+        @blur="searchResultsVisible = false"
+        @keydown="performSearch(school)"
+        
+      ></v-text-field>
+   
+    </div>
   </div>
 </template>
 
@@ -18,6 +21,7 @@ export default {
   data() {
     return {
       school: "",
+      list: 1,
       all_universities: null,
       searchResultsVisible: false,
       result: [],
@@ -25,7 +29,6 @@ export default {
         shouldSort: true,
         threshold: 0.6,
         location: 0,
-        distance: 100,
         maxPatternLength: 32,
         minMatchCharLength: 1,
         keys: ["name"]
@@ -38,7 +41,7 @@ export default {
     this.all_universities = require("../data/NewUni.json");
   },
   computed: {
-    ...mapState(["userBasedCountry", "username", "nationality", "flagNation"])
+    ...mapState(["userBasedCountry", "username", "nationality", "flagNation", "resultArray"])
   },
   methods: {
     ...mapActions(["loadUniversities", "loadFlags"]),
@@ -49,7 +52,11 @@ export default {
       timeout = setTimeout(() => {
         this.$store.dispatch("performSearch", this.school);
       }, 0);
-      this.search(this.school);
+      this.search()
+      this.routerPush()
+    },
+    routerPush(){
+      this.$router.push('/')
     },
     search(school) {
       this.$search(this.school, this.all_universities, this.option).then(
