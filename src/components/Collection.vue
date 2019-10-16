@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout row wrap justify-center>
-      <v-flex md3 ma-10 pa-6 v-for="(item,index) in usersChoice.slice(0, 12)" :key="index">
+      <v-flex md3 ma-10 pa-6 v-for="(item,index) in usersChoice" :key="index">
         <SchoolCard
           :title="item.name"
           :domain="item.web_pages[0]"
