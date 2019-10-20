@@ -38,8 +38,8 @@ export default {
           password: this.password
         })
         .then(success => {
-          this.$router.push("");
-          // window.history.go()
+          this.$router.push("/");
+          window.history.go()
         })
         .catch(errorLogin => {
           this.errorLogin = true;

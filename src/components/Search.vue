@@ -7,6 +7,10 @@
         :country="item.country"
         :image="imageSrc(item.country)"
       />
+      <v-btn @click="addtoBackpack(index)" color="green" text>
+
+      <v-icon >fas fa-plus</v-icon>
+      </v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -23,6 +27,9 @@ export default {
   methods: {
     imageSrc(count) {
       return require("../assets/flags/" + count + ".jpg");
+    },
+    addtoBackpack(index) {
+      this.$store.dispatch("addUsersChoiceFromSearch", index);
     }
   }
 };

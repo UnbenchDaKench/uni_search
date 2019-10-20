@@ -1,71 +1,56 @@
 <template>
-  <div :key="key">
-    <v-layout ma-5>
-      <v-flex md2>
-        <v-select
-          @input="filterCountry"
-          v-model="nation"
-          :items="states"
-          :error="error"
-          menu-props="auto"
-          hide-details
-          label="Please select a country"
-          single-line
-        ></v-select>
+  <v-container>
+    <v-layout justify-center class="mt-10 pa-10">
+      <v-flex md4>
+        <v-form>
+          <v-text-field v-model="username" :rules="nameRules" :error="error" label="Username"></v-text-field>
+          <v-select
+            v-model="nationality"
+            :items="states"
+            :error="error"
+            menu-props="auto"
+            hide-details
+            label="Nationality"
+            single-line
+          ></v-select>
+          <!-- <v-text-field
+            :type="'password'"
+            name="input-10-2"
+            label="password"
+            v-model="password"
+            hint="At least 8 characters"
+            class="input-group--focused"
+            :rules="passwordRules"
+            :error="error"
+          ></v-text-field>
+          <v-text-field
+            :type="'password'"
+            name="input-10-2"
+            label="Confirm Password"
+            v-model="confirm_password"
+            hint="At least 8 characters"
+            class="input-group--focused"
+            :rules="confirmpasswordRules"
+            :error="error"
+          ></v-text-field> -->
+          <div class="text-center mt-10 pa-10">
+            <v-btn color="green" @click="update">Update</v-btn>
+          </div>
+        </v-form>
+        <v-btn color="red" class="mt-10" @click="deleteUser">
+            Delete acoount
+        </v-btn>
       </v-flex>
     </v-layout>
-
-    <Vue2InteractDraggable
-      v-for="(item, index) in filteredCountry.slice({listNumber},maxNum)"
-      :key="index"
-      :interact-out-of-sight-x-cordinate="500"
-      :interact-max-rotation="15"
-      :interact-x-treshold="400"
-      :interact-y-treshold="400"
-      @draggedRight="right(index)"
-      @draggedLeft="left(index)"
-    >
-      <v-container class="stackedcard-container">
-        <v-layout justify-center ma-10 pa-10>
-          <v-flex md6 sm6>
-            <SchoolCard
-              :title="item.name"
-              :domain="item.web_pages[0]"
-              :country="item.country"
-              :image="imageSrc(item.country)"
-            />
-          </v-flex>
-        </v-layout>
-        <v-icon
-          color="green"
-          @click="right(index)"
-          x-large
-          class="stackedcard-containers"
-        >fas fa-heart</v-icon>
-        <v-icon
-          color="red"
-          @click="left(index)"
-          x-large
-          class="stackedcard-containers2"
-        >fas fa-window-close</v-icon>
-      </v-container>
-    </Vue2InteractDraggable>
-  </div>
+  </v-container>
 </template>
 
 <script>
-let timeout = null;
-import { Vue2InteractDraggable, InteractEventBus } from "vue2-interact";
-import SchoolCard from "./SwipeCard";
 import { mapState } from "vuex";
 export default {
   data() {
     return {
-      key: 0,
-      listNumber: 0,
-      maxNum: 10,
-      nation: "",
-      error: false,
+        nationality: '',
       states: [
         "Afghanistan",
         "Albania",
@@ -275,83 +260,45 @@ export default {
         { text: "State 5" },
         { text: "State 6" },
         { text: "State 7" }
-      ]
+      ],
+      email: "",
+      username: "",
+      password: "",
+      nationality: "",
+      confirm_password: "",
+      nameRules: [
+        v => !!v || "Username is required",
+        v => v.length <= 10 || "Username must be less than 10 characters"
+      ],
+      emailRules: [
+        v => !!v || "E-mail is required",
+        v => /.+@.+/.test(v) || "E-mail must be valid"
+      ],
+      passwordRules: [v => !!v || "password is required"],
+      confirmpasswordRules: [v => !!v || "password do not match"],
+      error: false,
+      error1: false,
+      errorSignUp: false
     };
   },
-  name: "SwipeableCards",
-  components: {
-    Vue2InteractDraggable,
-    SchoolCard
-  },
   computed: {
-    ...mapState(["filteredCountry", "usersChoice"])
+    ...mapState(["exists"])
   },
-  watch: {
-    nation: function(nation) {
-      timeout = setTimeout(() => {
-        this.forceRender();
-      }, 0);
-    }
-  },
-  created() {
-    this.$store.dispatch("loadCollections");
-    timeout = setTimeout(() => {
-      if (this.$store.state.errorGet === 400) {
-        this.right(0);
-      } else {
-        this.left(0);
-      }
-    }, 200);
+  mounted(){
+      this.nationality = this.$store.state.nationality,
+      this.username = this.$store.state.username
   },
   methods: {
-    right(index) {
-      this.showRight = true;
-      this.listNumber += 1;
-      this.maxNum += 1;
-      this.forceRender();
-      this.$store.dispatch("addUsersChoice", index);
-      this.$store.dispatch("deleteSchool", index);
+    update(){
+        this.$store.dispatch("update", {
+            username: this.username,
+            nationality: this.nationality
+        })
+
     },
-    forceRender() {
-      this.key += 1;
-    },
-    left(index) {
-      this.listNumber += 1;
-      this.maxNum += 1;
-      this.$store.dispatch("deleteSchool", index);
-      this.forceRender();
-    },
-    imageSrc(count) {
-      return require("../assets/flags/" + count + ".jpg");
-    },
-    filterCountry() {
-      this.listNumber = 0;
-      this.$store.dispatch("filterCountry", this.nation);
+    deleteUser(){
+        this.$store.dispatch("deleteUser")
     }
   }
 };
 </script>
-
-<style scoped>
-.stackedcard-container {
-  position: absolute;
-  width: 100%; /* set 100% */
-  will-change: transform, opacity;
-  top: 0;
-  border-radius: 200px;
-}
-.stackedcard-containers {
-  position: absolute;
-  width: 50%; /* set 100% */
-  height: 300px; /* set 100% */
-  top: 80%;
-  right: 5%;
-}
-.stackedcard-containers2 {
-  position: absolute;
-  width: 50%; /* set 100% */
-  height: 300px; /* set 100% */
-  top: 80%;
-  left: 5%;
-}
-</style>

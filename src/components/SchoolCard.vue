@@ -1,5 +1,5 @@
 <template>
-  <v-card min-height="400" hover>
+  <v-card min-height="450" hover shaped>
 
       <v-img
       class="white--text"
@@ -39,7 +39,8 @@ export default {
     image: {
       type: String,
       default: ''
-    }
+    },
+   
   }
 }
 </script>

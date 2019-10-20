@@ -13,7 +13,7 @@
           <div class="text-div">
             <h1>Welcome</h1>
             <p>{{username}}</p>
-            <v-btn x-large color="green" block to="/about">Explore</v-btn>
+            <v-btn x-large color="green" block to="/swipe">Explore</v-btn>
           </div>
         </v-row>
       </v-parallax>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+let timeout = null
 import SchoolCard from "../components/SchoolCard";
 import Search from "../components/Search";
 

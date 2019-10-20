@@ -1,0 +1,17 @@
+{
+    "phone": [
+      "(123) 456-7890",
+      "(000) 123-456"
+    ],
+    "address": {
+      "address": "405 Pleasant St",
+      "city": "Wolfville",
+      "province": "NS",
+      "postal_code": "B4P 1N3"
+    },
+    "email": [
+      "Nonnystar53@gmail.com",
+      ""
+    ]
+  }
+  

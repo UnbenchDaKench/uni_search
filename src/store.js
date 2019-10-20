@@ -96,6 +96,7 @@ export default new Vuex.Store({
       }
 
     ],
+    errorGet: 404,
     userBasedCountry: [],
     flags: {},
     flagNation: null,
@@ -105,9 +106,9 @@ export default new Vuex.Store({
     filteredCountry: [
       {
         'web_pages': [
-          'http://www.mcgill.ca/'
+          'http://google.com/'
         ],
-        'name': 'McGill University',
+        'name': 'Default Universisity',
         'alpha_two_code': 'CA',
         'state-province': 'Quebec',
         'domains': [
@@ -115,76 +116,8 @@ export default new Vuex.Store({
         ],
         'flags': 'http://sciencekids.co.nz/images/pictures/flags680/Canada.jpg',
 
-        'country': 'Canada'
-      },
-      {
-        'web_pages': [
-          'http://www.stanford.edu/'
-        ],
-        'name': 'Stanford University',
-        'alpha_two_code': 'US',
-        'state-province': 'CA',
-        'domains': [
-          'stanford.edu'
-        ],
-        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/United_States.jpg',
-        'country': 'United States'
-      },
-      {
-        'web_pages': [
-          'http://www.aup.fr/'
-        ],
-        'name': 'American University of Paris',
-        'alpha_two_code': 'FR',
-        'state-province': null,
-        'domains': [
-          'aup.fr'
-        ],
-        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/France.jpg',
-
-        'country': 'France'
-      },
-      {
-        'web_pages': [
-          'http://www.princeton.edu/'
-        ],
-        'name': 'Princeton University',
-        'alpha_two_code': 'US',
-        'state-province': 'Un',
-        'domains': [
-          'princeton.edu'
-        ],
-        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/United_States.jpg',
-
-        'country': 'United States'
-      },
-      {
-        'web_pages': [
-          'http://www.up.ac.za/'
-        ],
-        'name': 'University of Pretoria',
-        'alpha_two_code': 'ZA',
-        'state-province': null,
-        'domains': [
-          'up.ac.za'
-        ],
-        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/South_Africa.jpg',
-
-        'country': 'South Africa'
-      },
-      {
-        'web_pages': [
-          'http://www.ubc.ca/'
-        ],
-        'name': 'University of British Columbia',
-        'alpha_two_code': 'CA',
-        'state-province': 'BC',
-        'domains': [
-          'ubc.ca'
-        ],
-        'flags': 'http://sciencekids.co.nz/images/pictures/flags680/Canada.jpg',
-
-        'country': 'Canada'
+        'country': 'Canada',
+        isvisited: false
       }
 
     ],
@@ -205,28 +138,23 @@ export default new Vuex.Store({
       state.userId = res.userId
       var url = '/api/collection/' + state.userId + '/'
       axios.get(url).then(res => {
-        console.log(res.data.schoolChoices)
         state.usersChoice = res.data.schoolChoices
       })
     },
     LOGOUT (state) {
       state.login = false
       localStorage.removeItem('token')
+      localStorage.removeItem('username')
+      localStorage.removeItem('nationality')
+      localStorage.removeItem('nation')
+      localStorage.removeItem('userId')
+      state.userId = null
       state.token = null
       state.username = null
       state.nationality = null
+      window.history.go()
     },
-    LOAD_BY_COUNTRY (state) {
-      for (var i = 0; i < state.all_universities.length; i++) {
-        if (state.all_universities[i].country === 'Canada') {
-          state.canada.push(state.all_universities[i])
-        } else if (state.all_universities[i].country === 'United States') {
-          state.usa.push(state.all_universities[i])
-        } else if (state.all_universities[i].country === 'China') {
-          state.china.push(state.all_universities[i])
-        }
-      }
-    },
+
     LOAD_BY_COUNTRY_USER (state, country) {
       for (var i = 0; i < state.all_universities.length; i++) {
         if (state.all_universities[i].country === this.state.nationality) {
@@ -241,18 +169,71 @@ export default new Vuex.Store({
       state.resultArray = result
     },
     DELETE_SCHOOL (state, index) {
+      state.filteredCountry[index].isvisited = true
       state.filteredCountry.splice(index, 1)
     },
     ADD_USERS_CHOICE (state, index) {
+      state.filteredCountry[index].isvisited = true
       state.usersChoice.push(state.filteredCountry[index])
+      var id = this.state.userId
+
+      var url = '/api/collection/' + id
+      axios.post(url, state.filteredCountry[index])
+        .then(res => {
+        }).catch(error => {
+          console.log(error.message)
+        })
     },
     FILTER_COUNTRY (state, nation) {
+      state.errorGet = 0
       state.filteredCountry = []
       for (var i = 0; i < state.all_universities.length; i++) {
-        if (state.all_universities[i].country === nation) {
-          state.filteredCountry.push(state.all_universities[i])
+        if ((state.all_universities[i].country === nation)) {
+          for (var j = 0; j < state.usersChoice.length; j++) {
+            if (state.usersChoice[j].name === state.all_universities[i].name) {
+              state.all_universities[i].isvisited = true
+              console.log(state.all_universities[i].isvisited)
+            }
+          }
+          if (state.all_universities[i].isvisited === false) {
+            state.filteredCountry.push(state.all_universities[i])
+          }
         }
       }
+    },
+    LOAD_COLLECTIONS (state) {
+      var url = '/api/collection/' + state.userId + '/'
+      axios.get(url).then(res => {
+        state.usersChoice = res.data.schoolChoices
+      })
+        .catch(error => {
+          console.log(error.message)
+          state.errorGet = 400
+        })
+    },
+    REMOVE_COLLECTION (state, index) {
+      var collectionId = state.usersChoice[index]._id
+      var url = '/api/collection/' + state.userId + '/' + collectionId
+      axios.delete(url)
+      state.usersChoice.splice(index, 1)
+    },
+    ADD_FROM_SEARCH (state, index) {
+      state.resultArray[index].isvisited = true
+      state.usersChoice.push(state.resultArray[index])
+      var id = this.state.userId
+
+      var url = '/api/collection/' + id
+      axios.post(url, state.resultArray[index])
+        .then(res => {
+        }).catch(error => {
+          console.log(error.message)
+        })
+    },
+    UPDATE (state, res) {
+      localStorage.setItem('username', res.username)
+      localStorage.setItem('nationality', res.nationality)
+      state.username = res.username
+      state.nationality = res.nationality
     }
 
   },
@@ -264,6 +245,7 @@ export default new Vuex.Store({
     resultArray (state) {
       return state.resultArray
     }
+
   },
 
   actions: {
@@ -321,23 +303,33 @@ export default new Vuex.Store({
       commit('DELETE_SCHOOL', index)
     },
     addUsersChoice ({ commit }, index) {
-      var id = this.state.userId
-      var url = '/api/collection/' + id + '/'
-      console.log(this.state.filteredCountry[index])
-      return new Promise((resolve, reject) => {
-        axios.post(url, this.state.filteredCountry[index])
-          .then(res => {
-            console.log(res.data)
-            resolve(true)
-            commit('ADD_USERS_CHOICE', index)
-          }).catch(error => {
-            reject(error)
-            console.log(error)
-          })
-      })
+      commit('ADD_USERS_CHOICE', index)
     },
     filterCountry ({ commit }, nation) {
       commit('FILTER_COUNTRY', nation)
+    },
+    loadCollections ({ commit }) {
+      commit('LOAD_COLLECTIONS')
+    },
+    removeCollection ({ commit }, index) {
+      commit('REMOVE_COLLECTION', index)
+    },
+    addUsersChoiceFromSearch ({ commit }, index) {
+      commit('ADD_FROM_SEARCH', index)
+    },
+    update ({ commit }, user) {
+      var url = '/api/user/' + this.state.userId + '/'
+      axios.post(url, user)
+        .then(res => {
+          commit('UPDATE', res.data)
+          console.log(res.data)
+        })
+    },
+    deleteUser ({ commit }) {
+      var url = '/api/user/' + this.state.userId + '/'
+      axios.delete(url).then(res => {
+      })
+      commit('LOGOUT')
     }
 
   }
