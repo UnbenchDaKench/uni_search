@@ -1,16 +1,15 @@
 <template>
-  <v-parallax height="auto" dark id="team">
     <v-container fluid>
       <v-layout row>
-        <v-flex xs12 md12 order-lg2 lg12>
+        <v-flex xs12 md12 order-lg2 lg12 offset-md5>
           <v-card-text>
-            <h1>UNI SEARCH TEAM</h1>
+          <h1>UNI SEARCH TEAM</h1>
           </v-card-text>
         </v-flex>
       </v-layout>
       <br />
       <br />
-      <v-layout row wrap justify-center align-center>
+      <v-layout row wrap justify-center align-center class="mb-10">
         <v-flex v-for="item in teamInfo" :key="item" xs12 order-md1 order-xs1 md6 lg4 class="ma-3">
           <TeamPerson
             :Name="item.Name"
@@ -21,7 +20,6 @@
         </v-flex>
       </v-layout>
     </v-container>
-  </v-parallax>
 </template>
 <script>
 import TeamPerson from "./teamCard";
@@ -47,7 +45,7 @@ export default {
         },
         {
           Name: "King Abe",
-          Title: "Default ",
+          Title: "Story teller",
           Story: "default and default for now modify later"
         }
       ]

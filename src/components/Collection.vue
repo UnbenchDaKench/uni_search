@@ -1,5 +1,20 @@
 <template>
-  <div>
+<div v-if="usersChoice.length < 1">
+  <v-flex md6 sm12 xs12 lg6 class="center">
+
+  <v-card elevation="15" min-height="200">
+    <v-card-title class="justify-center">
+      Your backpack is empty
+    </v-card-title>
+    <v-card-text style="text-align: center;">
+      <router-link to="/swipe">
+      Click here to add 
+      </router-link>
+    </v-card-text>
+  </v-card>
+  </v-flex>
+</div>
+  <div v-else>
     <v-layout row wrap justify-center>
       <v-flex  md3 ma-10 pa-6 v-for="(item,index) in usersChoice" :key="index">
         <SchoolCard :key="key"
@@ -49,3 +64,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.center{
+  position: relative;
+  top: 15vw;
+  left: 25vw;
+}
+</style>

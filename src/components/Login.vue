@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="center">
     <v-layout justify-center="">
       <v-flex md4>
         <v-form>
@@ -10,6 +10,9 @@
           <div class="text-center">
             <v-btn color="green" mt-3 @click="login()">Log in</v-btn>
           </div>
+            <router-link to="/signup">
+            <p  class="mt-5">Don't have an account?  Sign up</p>
+            </router-link>
         </v-form>
       </v-flex>
     </v-layout>
@@ -48,3 +51,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.center{
+  position: absolute;
+  top: 10vw;
+}
+</style>

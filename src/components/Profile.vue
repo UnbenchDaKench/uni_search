@@ -32,14 +32,36 @@
             class="input-group--focused"
             :rules="confirmpasswordRules"
             :error="error"
-          ></v-text-field> -->
+          ></v-text-field>-->
           <div class="text-center mt-10 pa-10">
-            <v-btn color="green" @click="update">Update</v-btn>
+            <v-dialog v-model="dialog" persistent max-width="290">
+              <template v-slot:activator="{ on }">
+                <v-btn color="green" v-on="on">Update</v-btn>
+              </template>
+              <v-card>
+                <v-card-title >Are you sure you want to update?</v-card-title>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="green darken-1" text @click="dialog = false">Cancel</v-btn>
+                  <v-btn color="green darken-1" text @click="update">Confirm</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </div>
         </v-form>
-        <v-btn color="red" class="mt-10" @click="deleteUser">
-            Delete acoount
-        </v-btn>
+        <v-dialog v-model="dialog2" persistent max-width="290">
+          <template v-slot:activator="{ on }">
+            <v-btn color="red" class="mt-10" v-on="on">Delete acoount</v-btn>
+          </template>
+          <v-card>
+            <v-card-title>Are you sure you want to delete user?</v-card-title>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-1" text @click="dialog2 = false">Cancel</v-btn>
+              <v-btn color="green darken-1" text @click="deleteUser">Confirm</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-flex>
     </v-layout>
   </v-container>
@@ -50,7 +72,9 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-        nationality: '',
+      nationality: "",
+      dialog: false,
+      dialog2: false,
       states: [
         "Afghanistan",
         "Albania",
@@ -284,20 +308,21 @@ export default {
   computed: {
     ...mapState(["exists"])
   },
-  mounted(){
-      this.nationality = this.$store.state.nationality,
-      this.username = this.$store.state.username
+  mounted() {
+    (this.nationality = this.$store.state.nationality),
+      (this.username = this.$store.state.username);
   },
   methods: {
-    update(){
-        this.$store.dispatch("update", {
-            username: this.username,
-            nationality: this.nationality
-        })
-
+    update() {
+      this.$store.dispatch("update", {
+        username: this.username,
+        nationality: this.nationality
+      });
+      this.dialog = false;
     },
-    deleteUser(){
-        this.$store.dispatch("deleteUser")
+    deleteUser() {
+      this.$store.dispatch("deleteUser");
+      this.dialog2 = false
     }
   }
 };

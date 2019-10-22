@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container class="center">
     <v-layout justify-center>
-      <v-flex md4>
+      <v-flex md4 sm12>
         <v-form>
           <v-alert :value="errorSignUp" type="error">This user already exists, try again</v-alert>
           <v-text-field v-model="email" :rules="emailRules" label="E-mail" :error="error" required></v-text-field>
@@ -38,6 +38,9 @@
           <div class="text-center">
             <v-btn color="green" @click="signup">Sign up</v-btn>
           </div>
+           <router-link to="/login">
+            <p  class="mt-5">Already have an account?  Login</p>
+            </router-link>
         </v-form>
       </v-flex>
     </v-layout>
@@ -313,3 +316,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.center{
+  position: absolute;
+  top: 10vw;
+}
+</style>

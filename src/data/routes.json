@@ -1,0 +1,28 @@
+[
+  
+    {
+        "path": "/login",
+        "name": "Login",
+        "file": "Login.vue"
+    },
+    {
+        "path": "/collection",
+        "name": "Collection",
+        "file": "Collection.vue"
+    },
+    {
+        "path": "/swipe",
+        "name": "Swipe",
+        "file": "Swipe.vue"
+    },
+    {
+        "path": "/about",
+        "name": "About Us",
+        "file": "team.vue"
+    },
+    {
+        "path": "/profile",
+        "name": "Profile",
+        "file": "Profile.vue"
+    }
+ ]

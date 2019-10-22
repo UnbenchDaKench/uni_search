@@ -234,6 +234,8 @@ export default new Vuex.Store({
       localStorage.setItem('nationality', res.nationality)
       state.username = res.username
       state.nationality = res.nationality
+      window.history.go()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
     }
 
   },

@@ -1,9 +1,11 @@
 <template>
   <div v-if="loggedIn">
     <LoggedInLandingPage/>
+    <v-divider></v-divider>
   </div>
   <div v-else>
     <DefaultLandingPage />
+    <v-divider></v-divider>
   </div>
 </template>
 
@@ -14,7 +16,7 @@ import { mapState } from 'vuex'
 export default {
   components: {
     DefaultLandingPage,
-    LoggedInLandingPage
+    LoggedInLandingPage,
   },
   computed: {
     loggedIn () {

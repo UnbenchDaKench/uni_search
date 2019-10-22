@@ -1,7 +1,7 @@
 <template>
   <div :key="key">
-    <v-layout ma-5>
-      <v-flex md2>
+    <v-layout>
+      <v-flex md4 class="ml-10">
         <v-select
           @input="filterCountry"
           v-model="nation"
@@ -14,42 +14,52 @@
         ></v-select>
       </v-flex>
     </v-layout>
+      <v-flex md6 class="center" v-if="filteredCountry.length < 1">
+        <v-card elevation="15" min-height="200">
+          <v-card-title class="justify-center">There are no countries in this region</v-card-title>
+          <v-card-text style="text-align: center;">
+            <router-link>Reset filter</router-link>
+          </v-card-text>
+        </v-card>
+      </v-flex>
 
-    <Vue2InteractDraggable
-      v-for="(item, index) in filteredCountry.slice({listNumber},maxNum)"
-      :key="index"
-      :interact-out-of-sight-x-cordinate="500"
-      :interact-max-rotation="15"
-      :interact-x-treshold="400"
-      :interact-y-treshold="400"
-      @draggedRight="right(index)"
-      @draggedLeft="left(index)"
-    >
-      <v-container class="stackedcard-container">
-        <v-layout justify-center ma-10 pa-10>
-          <v-flex md6 sm6>
-            <SchoolCard
-              :title="item.name"
-              :domain="item.web_pages[0]"
-              :country="item.country"
-              :image="imageSrc(item.country)"
-            />
-          </v-flex>
-        </v-layout>
-        <v-icon
-          color="green"
-          @click="right(index)"
-          x-large
-          class="stackedcard-containers"
-        >fas fa-heart</v-icon>
-        <v-icon
-          color="red"
-          @click="left(index)"
-          x-large
-          class="stackedcard-containers2"
-        >fas fa-window-close</v-icon>
-      </v-container>
-    </Vue2InteractDraggable>
+    <div>
+      <Vue2InteractDraggable
+        v-for="(item, index) in filteredCountry.slice({listNumber},maxNum)"
+        :key="index"
+        :interact-out-of-sight-x-cordinate="500"
+        :interact-max-rotation="15"
+        :interact-x-treshold="400"
+        :interact-y-treshold="400"
+        @draggedRight="right(index)"
+        @draggedLeft="left(index)"
+      >
+        <v-container class="stackedcard-container">
+          <v-layout justify-center ma-10 pa-10>
+            <v-flex md6 sm6>
+              <SchoolCard
+                :title="item.name"
+                :domain="item.web_pages[0]"
+                :country="item.country"
+                :image="imageSrc(item.country)"
+              />
+            </v-flex>
+          </v-layout>
+          <v-icon
+            color="green"
+            @click="right(index)"
+            x-large
+            class="stackedcard-containers"
+          >fas fa-heart</v-icon>
+          <v-icon
+            color="red"
+            @click="left(index)"
+            x-large
+            class="stackedcard-containers2"
+          >fas fa-window-close</v-icon>
+        </v-container>
+      </Vue2InteractDraggable>
+    </div>
   </div>
 </template>
 
@@ -353,5 +363,10 @@ export default {
   height: 300px; /* set 100% */
   top: 80%;
   left: 5%;
+}
+.center{
+  position: relative;
+  top: 15vw;
+  left: 25vw;
 }
 </style>

@@ -1,13 +1,21 @@
 <template>
   <div>
-   <div v-if="school.length > 1">
-      <Search :key="componentKey" />
+    <div v-if="school.length > 1">
+      <v-flex md6 class="center" v-if="resultArray.length <= 0">
+        <v-card elevation="15" min-height="200">
+          <v-card-title class="justify-center">There are no match for the search</v-card-title>
+          <v-card-text style="text-align: center;">
+            <router-link>Reset filter</router-link>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+      <Search :key="componentKey" v-else />
     </div>
     <div v-else>
       <v-parallax
         class="blurred"
-        src="https://www.stevenson.edu/sebin/r/q/video-bg.jpg"
-        height="1000"
+        height="800"
+        src="https://i.ytimg.com/vi/mRMDkaozI2Q/maxresdefault.jpg"
       >
         <v-row align="center" justify="center">
           <div class="text-div">
@@ -21,7 +29,7 @@
 
       <!-- <h1 class="text-center">Welcome {{username}}</h1> -->
       <v-layout row wrap justify-center>
-        <v-flex md3 ma-10 pa-6 v-for="(item,index) in userBasedCountry.slice(0, 3)" :key="index">
+        <v-flex  md3 sm9 xs9  ma-10 pa-6 v-for="(item,index) in userBasedCountry.slice(0, 6)" :key="index">
           <SchoolCard
             :title="item.name"
             :domain="item.web_pages[0]"
@@ -30,14 +38,17 @@
           />
         </v-flex>
       </v-layout>
+      <v-divider></v-divider>
+      <team />
     </div>
   </div>
 </template>
 
 <script>
-let timeout = null
+let timeout = null;
 import SchoolCard from "../components/SchoolCard";
 import Search from "../components/Search";
+import team from "../components/team";
 
 import { mapState, mapActions } from "vuex";
 
@@ -50,19 +61,19 @@ export default {
   },
   components: {
     SchoolCard,
-    Search
+    Search,
+    team
   },
   created() {
     this.loadUniversities();
     this.loadFlags();
     this.getSchool();
   },
-    watch: {
-    school: function(school){
+  watch: {
+    school: function(school) {
       timeout = setTimeout(() => {
-
-        this.forceRender()
-      }, 0)
+        this.forceRender();
+      }, 0);
     }
   },
   mounted() {
@@ -89,7 +100,7 @@ export default {
       this.$store.state.school;
     },
     forceRender() {
-      this.componentKey += 1
+      this.componentKey += 1;
     }
   }
 };
@@ -116,5 +127,11 @@ export default {
   /* -webkit-filter: blur(2px); */
   /* background: rgb(0,0,0) !important;
     background: rgba(0,0,0, 0.9) !important;  Black w/opacity/see-through */
+  /* src="https://www.stevenson.edu/sebin/r/q/video-bg.jpg" */
+}
+.center {
+  position: relative;
+  top: 15vw;
+  left: 25vw;
 }
 </style>

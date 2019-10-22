@@ -5,8 +5,10 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import '@fortawesome/fontawesome-free/css/all.css'
 import VueFuse from 'vue-fuse'
+import VuejsDialog from 'vuejs-dialog';
 
 Vue.use(VueFuse)
+Vue.use(VuejsDialog)
 
 Vue.config.productionTip = false
 
