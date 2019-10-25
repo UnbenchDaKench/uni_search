@@ -16,7 +16,7 @@ import { mapState } from 'vuex'
 export default {
   components: {
     DefaultLandingPage,
-    LoggedInLandingPage,
+    LoggedInLandingPage
   },
   computed: {
     loggedIn () {

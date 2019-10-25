@@ -15,23 +15,22 @@
   </v-layout>
 </template>
 <script>
-import SchoolCard from "../components/SchoolCard";
-import { mapState, mapActions } from "vuex";
+import SchoolCard from '../components/SchoolCard'
+import { mapState, mapActions } from 'vuex'
 export default {
   components: {
     SchoolCard
   },
   computed: {
-    ...mapState(["school", "flags", "resultArray"])
+    ...mapState(['school', 'flags', 'resultArray'])
   },
   methods: {
-    imageSrc(count) {
-      return require("../assets/flags/" + count + ".jpg");
+    imageSrc (count) {
+      return require('../assets/flags/' + count + '.jpg')
     },
-    addtoBackpack(index) {
-      this.$store.dispatch("addUsersChoiceFromSearch", index);
+    addtoBackpack (index) {
+      this.$store.dispatch('addUsersChoiceFromSearch', index)
     }
   }
-};
+}
 </script>
-

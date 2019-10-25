@@ -24,40 +24,40 @@
   </v-parallax>
 </template>
 <script>
-import TeamPerson from "./teamCard";
-import axios from "axios";
+import TeamPerson from './teamCard'
+import axios from 'axios'
 export default {
   components: {
     TeamPerson
   },
-  data() {
+  data () {
     return {
       teamInfo: [
         {
-          Name: "Kingsley Ayabazu",
-          Title: "Software Developer",
-          Story: "default and default for now modify later",
+          Name: 'Kingsley Ayabazu',
+          Title: 'Software Developer',
+          Story: 'default and default for now modify later',
           Image:
-            "https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-1/p160x160/54517657_980114635517316_5297639892426162176_n.jpg?_nc_cat=104&_nc_oc=AQla1_sd-tpLqEs25bl-QhPAmmPbsb5HMCjxaX_FjElqaOZ-Izs_yttVSU2GgC8vB94o-f5kulRgHfJu1OiDzZ5W&_nc_ht=scontent-yyz1-1.xx&oh=da0d6657c59e591727b8f75ca2f03987&oe=5DF1EDDA"
+            'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-1/p160x160/54517657_980114635517316_5297639892426162176_n.jpg?_nc_cat=104&_nc_oc=AQla1_sd-tpLqEs25bl-QhPAmmPbsb5HMCjxaX_FjElqaOZ-Izs_yttVSU2GgC8vB94o-f5kulRgHfJu1OiDzZ5W&_nc_ht=scontent-yyz1-1.xx&oh=da0d6657c59e591727b8f75ca2f03987&oe=5DF1EDDA'
         },
         {
-          Name: "Kassim Izuagbe",
-          Title: "Idea man",
-          Story: "default and default for now modify later"
+          Name: 'Kassim Izuagbe',
+          Title: 'Idea man',
+          Story: 'default and default for now modify later'
         },
         {
-          Name: "King Abe",
-          Title: "Default ",
-          Story: "default and default for now modify later"
+          Name: 'King Abe',
+          Title: 'Default ',
+          Story: 'default and default for now modify later'
         }
       ]
-    };
+    }
   },
-  mounted() {
+  mounted () {
     // axios.get('/api/team/data.json').then(res => {
     //   this.teamInfo = res.data.team
     //   console.log(this.teamInfo)
     // })
   }
-};
+}
 </script>

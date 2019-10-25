@@ -7,20 +7,20 @@
         solo
         @blur="searchResultsVisible = false"
         @keydown="performSearch(school)"
-        
+
       ></v-text-field>
-   
+
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-let timeout = null;
+import { mapState, mapActions } from 'vuex'
+let timeout = null
 export default {
-  data() {
+  data () {
     return {
-      school: "",
+      school: '',
       list: 1,
       all_universities: null,
       searchResultsVisible: false,
@@ -31,41 +31,41 @@ export default {
         location: 0,
         maxPatternLength: 32,
         minMatchCharLength: 1,
-        keys: ["name"]
+        keys: ['name']
       }
-    };
+    }
   },
-  created() {
-    this.loadUniversities();
-    this.loadFlags();
-    this.all_universities = require("../data/NewUni.json");
+  created () {
+    this.loadUniversities()
+    this.loadFlags()
+    this.all_universities = require('../data/NewUni.json')
   },
   computed: {
-    ...mapState(["userBasedCountry", "username", "nationality", "flagNation", "resultArray"])
+    ...mapState(['userBasedCountry', 'username', 'nationality', 'flagNation', 'resultArray'])
   },
   methods: {
-    ...mapActions(["loadUniversities", "loadFlags"]),
-    performSearch(school) {
-      clearTimeout(timeout);
+    ...mapActions(['loadUniversities', 'loadFlags']),
+    performSearch (school) {
+      clearTimeout(timeout)
 
       // Make a new timeout set to go off in 800ms
       timeout = setTimeout(() => {
-        this.$store.dispatch("performSearch", this.school);
-      }, 0);
+        this.$store.dispatch('performSearch', this.school)
+      }, 0)
       this.search()
       this.routerPush()
     },
-    routerPush(){
+    routerPush () {
       this.$router.push('/')
     },
-    search(school) {
+    search (school) {
       this.$search(this.school, this.all_universities, this.option).then(
         results => {
-          this.result = results;
-          this.$store.dispatch("resultarray", this.result);
+          this.result = results
+          this.$store.dispatch('resultarray', this.result)
         }
-      );
+      )
     }
   }
-};
+}
 </script>

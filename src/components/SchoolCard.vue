@@ -39,8 +39,8 @@ export default {
     image: {
       type: String,
       default: ''
-    },
-   
+    }
+
   }
 }
 </script>

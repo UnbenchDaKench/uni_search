@@ -29,7 +29,15 @@
 
       <!-- <h1 class="text-center">Welcome {{username}}</h1> -->
       <v-layout row wrap justify-center>
-        <v-flex  md3 sm9 xs9  ma-10 pa-6 v-for="(item,index) in userBasedCountry.slice(0, 6)" :key="index">
+        <v-flex
+          md3
+          sm9
+          xs9
+          ma-10
+          pa-6
+          v-for="(item,index) in userBasedCountry.slice(0, 6)"
+          :key="index"
+        >
           <SchoolCard
             :title="item.name"
             :domain="item.web_pages[0]"
@@ -45,65 +53,65 @@
 </template>
 
 <script>
-let timeout = null;
-import SchoolCard from "../components/SchoolCard";
-import Search from "../components/Search";
-import team from "../components/team";
+import SchoolCard from '../components/SchoolCard'
+import Search from '../components/Search'
+import team from '../components/team'
 
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from 'vuex'
+let timeout = null
 
 export default {
-  data() {
+  data () {
     return {
-      nation: "",
+      nation: '',
       componentKey: 0
-    };
+    }
   },
   components: {
     SchoolCard,
     Search,
     team
   },
-  created() {
-    this.loadUniversities();
-    this.loadFlags();
-    this.getSchool();
+  created () {
+    this.loadUniversities()
+    this.loadFlags()
+    this.getSchool()
   },
   watch: {
-    school: function(school) {
+    school: function (school) {
       timeout = setTimeout(() => {
-        this.forceRender();
-      }, 0);
+        this.forceRender()
+      }, 0)
     }
   },
-  mounted() {
-    this.loadByCountryUser();
+  mounted () {
+    this.loadByCountryUser()
   },
   computed: {
     ...mapState([
-      "userBasedCountry",
-      "username",
-      "nationality",
-      "flagNation",
-      "school",
-      "resultArray",
-      "flags"
+      'userBasedCountry',
+      'username',
+      'nationality',
+      'flagNation',
+      'school',
+      'resultArray',
+      'flags'
     ])
   },
   methods: {
-    ...mapActions(["loadUniversities", "loadFlags"]),
+    ...mapActions(['loadUniversities', 'loadFlags']),
 
-    loadByCountryUser() {
-      this.$store.dispatch("loadByCountryUser", "Nigeria");
+    loadByCountryUser () {
+      this.$store.dispatch('loadByCountryUser', 'Nigeria')
     },
-    getSchool() {
-      this.$store.state.school;
+    getSchool () {
+      this.$store.state.school
     },
-    forceRender() {
-      this.componentKey += 1;
+    forceRender () {
+      this.componentKey += 1
     }
   }
-};
+}
 </script>
 
 <style scoped>

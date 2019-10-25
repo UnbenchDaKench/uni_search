@@ -35,19 +35,19 @@
 </template>
 
 <script>
-let timeout = null;
-
-import Canada from "./Canada";
-import SchoolCard from "../components/SchoolCard";
-import Search from "../components/Search";
+import Canada from './Canada'
+import SchoolCard from '../components/SchoolCard'
+import Search from '../components/Search'
 import team from '../components/team'
 
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from 'vuex'
+
+let timeout = null
 export default {
-  data() {
+  data () {
     return {
       componentKey: 0
-    };
+    }
   },
   components: {
     Canada,
@@ -56,30 +56,28 @@ export default {
     team
   },
   computed: {
-    ...mapState(["school", "flags", "resultArray"]),
+    ...mapState(['school', 'flags', 'resultArray'])
   },
   watch: {
-    school: function(school){
+    school: function (school) {
       timeout = setTimeout(() => {
-        
         this.forceRender()
       }, 0)
     }
   },
   methods: {
-    ...mapActions(["loadUniversities", "loadFlags"]),
-    forceRender() {
+    ...mapActions(['loadUniversities', 'loadFlags']),
+    forceRender () {
       this.componentKey += 1
     }
   },
-  created() {
-    this.loadUniversities();
+  created () {
+    this.loadUniversities()
   },
-  mounted(){
-    this.forceRender();
-
+  mounted () {
+    this.forceRender()
   }
-};
+}
 </script>
 
 <style scoped>
