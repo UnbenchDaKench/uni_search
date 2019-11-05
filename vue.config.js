@@ -6,7 +6,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://unisearchapi-demo.herokuapp.com',
+        target: 'https://unisearchapi.herokuapp.com',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
