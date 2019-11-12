@@ -37,14 +37,17 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-          <v-avatar to="/">
-      <img
+      <router-link to="/">
+
+        <v-toolbar-title class="headline text-uppercase">
+          <v-avatar >
+            <img
         src="https://cdn.vuetifyjs.com/images/john.jpg"
         alt="Home"
       >
     </v-avatar>
       </v-toolbar-title>
+      </router-link>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-md-and-down">
           <v-flex lg6 md6 class="mt-3">
