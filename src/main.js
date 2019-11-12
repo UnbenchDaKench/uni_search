@@ -6,9 +6,12 @@ import vuetify from './plugins/vuetify'
 import '@fortawesome/fontawesome-free/css/all.css'
 import VueFuse from 'vue-fuse'
 import VuejsDialog from 'vuejs-dialog'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 
 Vue.use(VueFuse)
 Vue.use(VuejsDialog)
+Vue.use(Loading)
 
 Vue.config.productionTip = false
 

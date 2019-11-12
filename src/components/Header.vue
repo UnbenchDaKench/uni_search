@@ -42,7 +42,7 @@
         <v-toolbar-title class="headline text-uppercase">
           <v-avatar >
             <img
-        src="/assets/Uni_Search_Logo.png"
+        src="../assets/Uni_Search_Logo.png"
         alt="Logo"
       >
     </v-avatar>
