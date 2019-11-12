@@ -42,8 +42,8 @@
         <v-toolbar-title class="headline text-uppercase">
           <v-avatar >
             <img
-        src="Uni_Search_Logo.png"
-        alt="Home"
+        src="/assets/Uni_Search_Logo.png"
+        alt="Logo"
       >
     </v-avatar>
       </v-toolbar-title>
