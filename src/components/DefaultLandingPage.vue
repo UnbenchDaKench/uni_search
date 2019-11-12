@@ -23,7 +23,8 @@
       <v-divider></v-divider>
       <team/>
     </div>
-     <v-flex md6 sm12 xs12 lg6 class="center" v-if="resultArray.length< 1 && school.length > 2">
+    <v-layout row wrap>
+     <v-flex md6 sm12 xs12 lg6 class="center ma-5 pa-5" v-if="resultArray.length< 1 && school.length > 2">
         <v-card elevation="15" min-height="200">
           <v-card-title class="justify-center">There are no match for the search</v-card-title>
           <v-card-text style="text-align: center;">
@@ -31,6 +32,7 @@
           </v-card-text>
         </v-card>
       </v-flex>
+    </v-layout>
   </div>
 </template>
 

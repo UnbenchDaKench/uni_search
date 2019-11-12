@@ -1,7 +1,7 @@
 <template>
   <div :key="key">
-    <v-layout>
-      <v-flex md4 class="ml-10">
+    <v-layout row wrap>
+      <v-flex md4 sm12 class="ml-10">
         <v-select
           @input="filterCountry"
           v-model="nation"
@@ -13,30 +13,34 @@
           single-line
         ></v-select>
       </v-flex>
+
     </v-layout>
-      <v-flex md6 class="center" v-if="filteredCountry.length < 1">
-        <v-card elevation="15" min-height="200">
+
+    <v-row v-if="filteredCountry.length < 1">
+      <v-col>
+         <v-card elevation="15" min-height="200">
           <v-card-title class="justify-center">There are no countries in this region</v-card-title>
           <v-card-text style="text-align: center;">
             <router-link>Reset filter</router-link>
           </v-card-text>
         </v-card>
-      </v-flex>
+      </v-col>
+    </v-row>
 
     <div>
       <Vue2InteractDraggable
         v-for="(item, index) in filteredCountry.slice({listNumber},maxNum)"
         :key="index"
-        :interact-out-of-sight-x-cordinate="500"
+        :interact-out-of-sight-x-cordinate="200"
         :interact-max-rotation="15"
-        :interact-x-treshold="400"
-        :interact-y-treshold="400"
+        :interact-x-treshold="100"
+        :interact-y-treshold="100"
         @draggedRight="right(index)"
         @draggedLeft="left(index)"
       >
         <v-container class="stackedcard-container">
-          <v-layout justify-center ma-10 pa-10>
-            <v-flex md6 sm6>
+          <v-layout justify-center row class="pa-5">
+            <v-flex md6 sm12 xs12 lg6>
               <SchoolCard
                 :title="item.name"
                 :domain="item.web_pages[0]"
@@ -45,7 +49,7 @@
               />
             </v-flex>
           </v-layout>
-          <v-icon
+          <!-- <v-icon
             color="green"
             @click="right(index)"
             x-large
@@ -56,7 +60,7 @@
             @click="left(index)"
             x-large
             class="stackedcard-containers2"
-          >fas fa-window-close</v-icon>
+          >fas fa-window-close</v-icon> -->
         </v-container>
       </Vue2InteractDraggable>
     </div>
@@ -347,7 +351,7 @@ export default {
   position: absolute;
   width: 100%; /* set 100% */
   will-change: transform, opacity;
-  top: 0;
+  top: 10%;
   border-radius: 200px;
 }
 .stackedcard-containers {

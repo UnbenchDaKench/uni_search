@@ -30,11 +30,12 @@
       <!-- <h1 class="text-center">Welcome {{username}}</h1> -->
       <v-layout row wrap justify-center>
         <v-flex
+          lg3
           md3
-          sm9
-          xs9
-          ma-10
-          pa-6
+          sm12
+          xs12
+          ma-5
+          pa-5
           v-for="(item,index) in userBasedCountry.slice(0, 6)"
           :key="index"
         >

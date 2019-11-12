@@ -1,10 +1,5 @@
 [
-  
-    {
-        "path": "/login",
-        "name": "Login",
-        "file": "Login.vue"
-    },
+    
     {
         "path": "/collection",
         "name": "Collection",

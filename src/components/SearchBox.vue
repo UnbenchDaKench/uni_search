@@ -4,7 +4,6 @@
       <v-text-field
         v-model="school"
         label="Search by school name"
-        solo
         @blur="searchResultsVisible = false"
         @keydown="performSearch(school)"
 
