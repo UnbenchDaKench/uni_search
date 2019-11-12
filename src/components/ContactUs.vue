@@ -42,7 +42,7 @@ export default {
         },
         {
           Name: 'Kassim Izuagbe',
-          Title: 'Idea man',
+          Title: 'Chief Executive',
           Story: 'default and default for now modify later'
         },
         {
