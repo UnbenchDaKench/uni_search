@@ -42,7 +42,7 @@
         <v-toolbar-title class="headline text-uppercase">
           <v-avatar >
             <img
-        src="https://cdn.vuetifyjs.com/images/john.jpg"
+        src="Uni_Search_Logo.png"
         alt="Home"
       >
     </v-avatar>
