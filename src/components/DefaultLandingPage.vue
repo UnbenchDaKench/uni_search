@@ -16,6 +16,9 @@
         <h1 class="display-1 font-weight mb-4">Uni Search Now</h1>
         <h4 class="subheading">High School to University Transition made easy!</h4>
       </v-col>
+      <v-col class="text-center mt-0" cols="12">
+        <v-btn  to="/signup" large color="green">Sign up</v-btn>
+      </v-col>
     </v-row>
   </v-parallax>
       <v-divider></v-divider>
