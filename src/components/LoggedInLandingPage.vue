@@ -21,8 +21,8 @@
       justify="center"
     >
       <v-col class="text-center" cols="12">
-        <h1 class="display-1 font-weight mb-4">Uni Search Now</h1>
-        <h4 class="subheading">High School to University Transition made easy!</h4>
+        <h1 class="display-3 font-weight mb-4">Welcome</h1>
+        <h4 class="subheading">{{username}}</h4>
       </v-col>
     </v-row>
   </v-parallax>

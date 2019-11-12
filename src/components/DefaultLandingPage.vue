@@ -4,19 +4,20 @@
       <Search :key="componentKey" />
     </div>
     <div v-else>
-      <v-parallax
-        class="blurred mb-10"
-        height="800"
-        src="https://i.ytimg.com/vi/mRMDkaozI2Q/maxresdefault.jpg"
-      >
-        <v-row align="center" justify="center">
-          <div class="text-div">
-            <h1>Uni Search</h1>
-            <p>High School to University Transition Made Easy</p>
-            <v-btn x-large color="green" block to="signup">Sign up</v-btn>
-          </div>
-        </v-row>
-      </v-parallax>
+         <v-parallax
+    dark
+    src="https://i.ytimg.com/vi/mRMDkaozI2Q/maxresdefault.jpg"
+  >
+    <v-row
+      align="center"
+      justify="center"
+    >
+      <v-col class="text-center" cols="12">
+        <h1 class="display-1 font-weight mb-4">Uni Search Now</h1>
+        <h4 class="subheading">High School to University Transition made easy!</h4>
+      </v-col>
+    </v-row>
+  </v-parallax>
       <v-divider></v-divider>
 
       <Canada />
