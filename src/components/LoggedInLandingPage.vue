@@ -12,19 +12,20 @@
       <Search :key="componentKey" v-else />
     </div>
     <div v-else>
-      <v-parallax
-        class="blurred"
-        height="800"
-        src="https://i.ytimg.com/vi/mRMDkaozI2Q/maxresdefault.jpg"
-      >
-        <v-row align="center" justify="center">
-          <div class="text-div">
-            <h1>Welcome</h1>
-            <p>{{username}}</p>
-            <v-btn x-large color="green" block to="/swipe">Explore</v-btn>
-          </div>
-        </v-row>
-      </v-parallax>
+       <v-parallax
+    dark
+    src="https://i.ytimg.com/vi/mRMDkaozI2Q/maxresdefault.jpg"
+  >
+    <v-row
+      align="center"
+      justify="center"
+    >
+      <v-col class="text-center" cols="12">
+        <h1 class="display-1 font-weight mb-4">Uni Search Now</h1>
+        <h4 class="subheading">High School to University Transition made easy!</h4>
+      </v-col>
+    </v-row>
+  </v-parallax>
       <v-divider></v-divider>
 
       <!-- <h1 class="text-center">Welcome {{username}}</h1> -->
