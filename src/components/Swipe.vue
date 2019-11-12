@@ -27,14 +27,15 @@
       </v-col>
     </v-row>
 
-    <div>
+    <v-container>
       <Vue2InteractDraggable
         v-for="(item, index) in filteredCountry.slice({listNumber},maxNum)"
         :key="index"
         :interact-out-of-sight-x-cordinate="200"
+        :interact-out-of-sight-y-cordinate="200"
         :interact-max-rotation="15"
-        :interact-x-treshold="100"
-        :interact-y-treshold="100"
+        :interact-x-treshold="10"
+        :interact-y-treshold="10"
         @draggedRight="right(index)"
         @draggedLeft="left(index)"
       >
@@ -63,7 +64,7 @@
           >fas fa-window-close</v-icon> -->
         </v-container>
       </Vue2InteractDraggable>
-    </div>
+    </v-container>
   </div>
 </template>
 
@@ -352,7 +353,7 @@ export default {
   width: 100%; /* set 100% */
   will-change: transform, opacity;
   top: 10%;
-  border-radius: 200px;
+  /* border-radius: 200px; */
 }
 .stackedcard-containers {
   position: absolute;
@@ -372,5 +373,10 @@ export default {
   position: relative;
   top: 15vw;
   left: 25vw;
+}
+.center-card{
+  position: relative;
+  top: 15vw;
+  bottom: 0vw;
 }
 </style>

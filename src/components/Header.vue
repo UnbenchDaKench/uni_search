@@ -36,7 +36,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app hide-on-scroll>
+    <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
           <v-avatar to="/">
       <img
