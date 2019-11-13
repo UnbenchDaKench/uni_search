@@ -35,17 +35,16 @@ export default {
           Name: 'Kingsley Ayabazu',
           Title: 'Software Developer',
           Story: 'default and default for now modify later',
-          Image:
-            'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-1/p160x160/54517657_980114635517316_5297639892426162176_n.jpg?_nc_cat=104&_nc_oc=AQla1_sd-tpLqEs25bl-QhPAmmPbsb5HMCjxaX_FjElqaOZ-Izs_yttVSU2GgC8vB94o-f5kulRgHfJu1OiDzZ5W&_nc_ht=scontent-yyz1-1.xx&oh=da0d6657c59e591727b8f75ca2f03987&oe=5DF1EDDA'
+          Image: 'https://scontent.fyaw1-1.fna.fbcdn.net/v/t1.0-9/54517657_980114635517316_5297639892426162176_n.jpg?_nc_cat=104&_nc_oc=AQlnvUCoSpNRzBMNQPlQX9KtgvWqw3kOy2CQEJBzepH-M6P3Yi8Sy0jjsWAn_gVrdZ4&_nc_ht=scontent.fyaw1-1.fna&oh=83aea29e13d75fbceb82b17271c58f72&oe=5E428A9B'
         },
         {
           Name: 'Kassim Izuagbe',
-          Title: 'Idea man',
+          Title: 'Head of Documentations, Designer, Chief Executive',
           Story: 'default and default for now modify later'
         },
         {
-          Name: 'King Abe',
-          Title: 'Story teller',
+          Name: 'Abiodun Oladoyin',
+          Title: 'Quality Assurance Officer',
           Story: 'default and default for now modify later'
         }
       ]

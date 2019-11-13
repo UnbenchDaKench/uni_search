@@ -13,11 +13,6 @@
       <span>{{ Title }}</span>
     </div>
 
-    <v-card-text>
-      <div class="text-center">
-        <a :href="domain">Visit {{title}} Website</a>
-      </div>
-    </v-card-text>
   </v-card>
 </template>
 <script>
