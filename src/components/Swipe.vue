@@ -16,8 +16,8 @@
 
     </v-layout>
 
-    <v-row v-if="filteredCountry.length < 1">
-      <v-col>
+    <v-row class="center-card" justify="center" v-if="filteredCountry.length < 1">
+      <v-col md="4" cols="12">
          <v-card elevation="15" min-height="200">
           <v-card-title class="justify-center">There are no countries in this region</v-card-title>
           <v-card-text style="text-align: center;">
@@ -50,7 +50,7 @@
               />
             </v-flex>
           </v-layout>
-          <!-- <v-icon
+          <v-icon
             color="green"
             @click="right(index)"
             x-large
@@ -61,7 +61,7 @@
             @click="left(index)"
             x-large
             class="stackedcard-containers2"
-          >fas fa-window-close</v-icon> -->
+          >fas fa-window-close</v-icon>
         </v-container>
       </Vue2InteractDraggable>
     </v-container>
@@ -376,7 +376,6 @@ export default {
 }
 .center-card{
   position: relative;
-  top: 15vw;
-  bottom: 0vw;
+  top: 10vw;
 }
 </style>

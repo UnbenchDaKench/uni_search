@@ -49,10 +49,13 @@
       </v-toolbar-title>
       </router-link>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-md-and-down">
-          <v-flex lg6 md6 class="mt-3">
+       <v-row class="hidden-md-and-down mt-2">
+          <v-col md="12">
             <SearchBox />
-        </v-flex>
+          </v-col>
+        </v-row>
+      <v-toolbar-items class="hidden-md-and-down">
+
         <span v-if="loggedIn" class="mt-4 ml-5">
           <v-dialog v-model="dialog" persistent max-width="290">
             <template v-slot:activator="{ on }">
