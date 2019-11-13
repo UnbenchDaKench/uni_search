@@ -1,7 +1,7 @@
 <template>
   <div :key="key">
-    <v-layout row wrap>
-      <v-flex md4 sm12 class="ml-10">
+    <v-layout row wrap justify-center="">
+      <v-flex md4 sm12>
         <v-select
           @input="filterCountry"
           v-model="nation"
@@ -18,12 +18,11 @@
 
     <v-row class="center-card" justify="center" v-if="filteredCountry.length < 1">
       <v-col md="4" cols="12">
-         <v-card elevation="15" min-height="200">
-          <v-card-title class="justify-center">There are no countries in this region</v-card-title>
-          <v-card-text style="text-align: center;">
-            <router-link>Reset filter</router-link>
-          </v-card-text>
-        </v-card>
+          <span class="justify-center">
+            <h1>
+   There are no countries in this region
+            </h1>
+         </span>
       </v-col>
     </v-row>
 
@@ -50,7 +49,7 @@
               />
             </v-flex>
           </v-layout>
-          <v-icon
+          <!-- <v-icon
             color="green"
             @click="right(index)"
             x-large
@@ -61,7 +60,7 @@
             @click="left(index)"
             x-large
             class="stackedcard-containers2"
-          >fas fa-window-close</v-icon>
+          >fas fa-window-close</v-icon> -->
         </v-container>
       </Vue2InteractDraggable>
     </v-container>
@@ -352,7 +351,7 @@ export default {
   position: absolute;
   width: 100%; /* set 100% */
   will-change: transform, opacity;
-  top: 10%;
+  top: 10vw;
   /* border-radius: 200px; */
 }
 .stackedcard-containers {
