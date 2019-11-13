@@ -11,7 +11,7 @@
       <br />
       <br />
       <v-layout row wrap justify-center align-center>
-        <v-flex v-for="item in teamInfo" :key="item" xs12 order-md1 order-xs1 md6 lg4 class="ma-3">
+        <v-flex v-for="item in teamInfo" :key="item" xs12 order-md1 order-xs1 md6 lg4 class="ma-3 pa-3">
           <TeamPerson
             :Name="item.Name"
             :Image="item.Image"

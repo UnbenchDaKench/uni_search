@@ -4,7 +4,7 @@
     <v-content>
       <router-view/>
     </v-content>
-    <Footer/>
+    <Footer class="hidden-md-and-down"/>
   </v-app>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div :key="key">
     <v-layout row wrap justify-center="">
-      <v-flex md4 sm12>
+      <v-flex md4 sm9 lg4 xs9>
         <v-select
           @input="filterCountry"
           v-model="nation"
@@ -17,11 +17,9 @@
     </v-layout>
 
     <v-row class="center-card" justify="center" v-if="filteredCountry.length < 1">
-      <v-col md="4" cols="12">
-          <span class="justify-center">
-            <h1>
-   There are no countries in this region
-            </h1>
+      <v-col md="4" cols="9">
+          <span class="justify-center display-1">
+   <i>There are no countries in this region</i>
          </span>
       </v-col>
     </v-row>

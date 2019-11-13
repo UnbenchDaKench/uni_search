@@ -2,7 +2,13 @@
   <div>
     <v-navigation-drawer v-model="drawer" disable-resize-watcher app>
       <v-list class="pa-1">
-        <span v-if="loggedIn">
+
+        <v-list-item v-for="(route, index) in routes" :key="index" :to="route.path">
+          <v-list-item-content>
+            <v-list-item-title>{{ route.name }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+  <span v-if="loggedIn">
         <v-list-item>
           <v-dialog v-model="dialog" persistent max-width="290">
             <template v-slot:activator="{ on }">
@@ -24,17 +30,11 @@
              <v-list-item-title>Login</v-list-item-title>
            </v-list-item>
         </span>
-
-        <v-list-item v-for="(route, index) in routes" :key="index" :to="route.path">
-          <v-list-item-content>
-            <v-list-item-title>{{ route.name }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
         <v-list-item @click="lightSwitch">
           <v-switch class="pt-0" :label="themeState"></v-switch>
         </v-list-item>
       </v-list>
+
     </v-navigation-drawer>
     <v-app-bar app>
       <router-link to="/">
@@ -56,6 +56,15 @@
         </v-row>
       <v-toolbar-items class="hidden-md-and-down">
 
+        <v-btn text to="/collection">Backpack</v-btn>
+        <v-btn text to="/swipe">Swipe</v-btn>
+        <v-btn text to="/contactus">About Us</v-btn>
+        <v-btn text to="/profile">Profile</v-btn>
+        <span class="mt-2" @click="lightSwitch">
+          <v-btn class disabled text>
+            <v-switch class="pt-3" v-model="darkstate" :label="themeState"></v-switch>
+          </v-btn>
+        </span>
         <span v-if="loggedIn" class="mt-4 ml-5">
           <v-dialog v-model="dialog" persistent max-width="290">
             <template v-slot:activator="{ on }">
@@ -73,15 +82,6 @@
         </span>
         <span v-else class="mt-4 ml-5">
           <v-btn text to="/login">Login</v-btn>
-        </span>
-        <v-btn text to="/collection">Backpack</v-btn>
-        <v-btn text to="/swipe">Swipe</v-btn>
-        <v-btn text to="/contactus">About Us</v-btn>
-        <v-btn text to="/profile">Profile</v-btn>
-        <span class="mt-2" @click="lightSwitch">
-          <v-btn class disabled text>
-            <v-switch class="pt-3" v-model="darkstate" :label="themeState"></v-switch>
-          </v-btn>
         </span>
       </v-toolbar-items>
   <!-- <v-layout row> -->
