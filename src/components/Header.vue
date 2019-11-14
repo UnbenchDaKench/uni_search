@@ -55,16 +55,6 @@
           </v-col>
         </v-row>
       <v-toolbar-items class="hidden-md-and-down">
-
-        <v-btn text to="/collection">Backpack</v-btn>
-        <v-btn text to="/swipe">Swipe</v-btn>
-        <v-btn text to="/contactus">About Us</v-btn>
-        <v-btn text to="/profile">Profile</v-btn>
-        <span class="mt-2" @click="lightSwitch">
-          <v-btn class disabled text>
-            <v-switch class="pt-3" v-model="darkstate" :label="themeState"></v-switch>
-          </v-btn>
-        </span>
         <span v-if="loggedIn" class="mt-4 ml-5">
           <v-dialog v-model="dialog" persistent max-width="290">
             <template v-slot:activator="{ on }">
@@ -83,6 +73,16 @@
         <span v-else class="mt-4 ml-5">
           <v-btn text to="/login">Login</v-btn>
         </span>
+        <v-btn text to="/collection">Backpack</v-btn>
+        <v-btn text to="/swipe">Swipe</v-btn>
+        <v-btn text to="/contactus">About Us</v-btn>
+        <v-btn text to="/profile">Profile</v-btn>
+        <span class="mt-2" @click="lightSwitch">
+          <v-btn class disabled text>
+            <v-switch class="pt-3" v-model="darkstate" :label="themeState"></v-switch>
+          </v-btn>
+        </span>
+
       </v-toolbar-items>
   <!-- <v-layout row> -->
 
