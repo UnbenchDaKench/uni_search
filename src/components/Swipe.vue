@@ -28,11 +28,10 @@
       <Vue2InteractDraggable
         v-for="(item, index) in filteredCountry.slice({listNumber},maxNum)"
         :key="index"
-        :interact-out-of-sight-x-coordinate="200"
-        :interact-out-of-sight-y-coordinate="200"
+        :interact-out-of-sight-x-coordinate="500"
         :interact-max-rotation="15"
-        :interact-x-threshold="10"
-        :interact-y-threshold="10"
+        :interact-x-threshold="200"
+        :interact-y-threshold="200"
         @draggedRight="right(index)"
         @draggedLeft="left(index)"
       >
