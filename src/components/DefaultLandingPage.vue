@@ -7,7 +7,7 @@
          <v-parallax
     dark
     src="https://i.ytimg.com/vi/mRMDkaozI2Q/maxresdefault.jpg"
-  >
+    >
     <v-row
       align="center"
       justify="center"

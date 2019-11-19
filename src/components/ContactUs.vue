@@ -4,7 +4,9 @@
       <v-layout row>
         <v-flex xs12 md12 order-lg2 lg12>
           <v-card-text>
-            <h1>UNI SEARCH TEAM</h1>
+            <h1>UNI SEARCH NOW DEV TEAM</h1>
+            <br>
+            <p>Insert story about how cool the dev team is here</p>
           </v-card-text>
         </v-flex>
       </v-layout>
@@ -43,7 +45,8 @@ export default {
         {
           Name: 'Kassim Izuagbe',
           Title: 'Chief Executive',
-          Story: 'default and default for now modify later'
+          Story: 'default and default for now modify later',
+          Image: 'https://tinyurl.com/qv29alj'
         },
         {
           Name: 'King Abe',

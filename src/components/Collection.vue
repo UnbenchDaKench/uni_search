@@ -4,7 +4,7 @@
       <v-card elevation="15" min-height="200">
         <v-card-title class="justify-center">Your backpack is empty</v-card-title>
         <v-card-text style="text-align: center;">
-          <router-link to="/swipe">Click here to add</router-link>
+          <router-link to="/swipe">Click here to add schools</router-link>
         </v-card-text>
       </v-card>
     </v-flex>

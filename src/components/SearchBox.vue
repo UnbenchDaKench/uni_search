@@ -3,7 +3,7 @@
     <div>
       <v-text-field
         v-model="school"
-        label="Search by school name"
+        label="Search by School Name"
         @blur="searchResultsVisible = false"
         @keydown="performSearch(school)"
 

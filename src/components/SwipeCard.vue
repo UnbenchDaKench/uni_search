@@ -1,6 +1,6 @@
 <template>
-  <v-card min-height="600" hover>
-    <v-img class="white--text" height="400px" :src="image"></v-img>
+  <v-card min-height="500" hover>
+    <v-img class="white--text" height="350px" :src="image"></v-img>
     <v-card-title class="justify-center">
       <span align="center">{{ title }}</span>
     </v-card-title>
@@ -10,7 +10,7 @@
 
     <v-card-text>
       <div class="text-center">
-        <a :href="domain">Visit {{title}} Website</a>
+        <a :href="domain">Visit {{title}}'s Website</a>
       </div>
     </v-card-text>
   </v-card>
