@@ -348,7 +348,7 @@ export default {
   position: absolute;
   width: 100%; /* set 100% */
   will-change: transform, opacity;
-  top: 10vw;
+  top: 7vw;
   /* border-radius: 200px; */
 }
 .stackedcard-containers {

@@ -1,5 +1,5 @@
 <template>
-  <v-card min-height="600" hover>
+  <v-card min-height="550" hover>
     <v-img class="white--text" height="350px" :src="image"></v-img>
     <v-card-title class="justify-center">
       <span align="center">{{ title }}</span>
