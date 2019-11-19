@@ -59,10 +59,10 @@
         <v-btn text to="/swipe">Swipe</v-btn>
         <v-btn text to="/contactus">About Us</v-btn>
         <v-btn text to="/profile">Profile</v-btn>
-        <span v-if="loggedIn" class="mt-4 ml-5">
+        <span v-if="loggedIn" class="mt-3">
           <v-dialog v-model="dialog" persistent max-width="290">
             <template v-slot:activator="{ on }">
-              <v-btn text v-on="on">Logout</v-btn>
+              <v-btn class="mb-5" text v-on="on">Logout</v-btn>
             </template>
             <v-card>
               <v-card-title>Are you sure you want to Logout?</v-card-title>
@@ -74,8 +74,8 @@
             </v-card>
           </v-dialog>
         </span>
-        <span v-else class="mt-4 ml-5">
-          <v-btn text to="/login">Login</v-btn>
+        <span v-else class="mt-3">
+          <v-btn  text to="/login">Login</v-btn>
         </span>
         <span class="mt-2" @click="lightSwitch">
           <v-btn class disabled text>

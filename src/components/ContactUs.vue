@@ -46,12 +46,13 @@ export default {
           Name: 'Kassim Izuagbe',
           Title: 'Chief Executive',
           Story: 'default and default for now modify later',
-          Image: 'https://tinyurl.com/qv29alj'
+          Image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-1/p960x960/60944195_2235549079862350_7903288996338335744_o.jpg?_nc_cat=102&_nc_oc=AQkxQJoBboh2THj2F2h42V9WdnX35ygpbRx-UXULJRLEiJDoFleSi6BwtvhSEfFHKtPZDkHieu96XiM_vO_2VNan&_nc_ht=scontent-yyz1-1.xx&oh=8428fce75103152e27cb2e4dcb1b4860&oe=5E4F8EBE'
         },
         {
           Name: 'King Abe',
           Title: 'Quality Assurance Officer ',
-          Story: 'default and default for now modify later'
+          Story: 'default and default for now modify later',
+          Image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/p960x960/46778427_958398391018197_8561265711069003776_o.jpg?_nc_cat=105&_nc_oc=AQkhc7Uhio2_a1QrCPWy6n8XVyJyfqw2Q5ccoHUgP2bM1aqe9r2DVYpoD9j5MhhETMg4RQGr1rPpVF_VNaQJ7Q7I&_nc_ht=scontent-yyz1-1.xx&oh=e68f482a7cd43ebf459e82a071ba6b14&oe=5E88CD7D'
         }
       ]
     }
