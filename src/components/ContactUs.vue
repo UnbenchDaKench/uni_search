@@ -46,7 +46,7 @@ export default {
           Name: 'Kassim Izuagbe',
           Title: 'Chief Executive',
           Story: 'default and default for now modify later',
-          Image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-1/p960x960/60944195_2235549079862350_7903288996338335744_o.jpg?_nc_cat=102&_nc_oc=AQkxQJoBboh2THj2F2h42V9WdnX35ygpbRx-UXULJRLEiJDoFleSi6BwtvhSEfFHKtPZDkHieu96XiM_vO_2VNan&_nc_ht=scontent-yyz1-1.xx&oh=8428fce75103152e27cb2e4dcb1b4860&oe=5E4F8EBE'
+          Image: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.15752-0/p480x480/78093964_2466786416897788_8808370817583808512_n.jpg?_nc_cat=107&_nc_ohc=gY9jHqm-7FgAQn43p-Vh_zKNA8MXTXJkAbMWo3-7FxiIaKsfVExhtw8sw&_nc_ht=scontent-yyz1-1.xx&oh=e81f5424e8ca215983032c41fb26ffb4&oe=5E407D0A'
         },
         {
           Name: 'King Abe',
