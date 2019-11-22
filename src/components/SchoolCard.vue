@@ -1,11 +1,6 @@
 <template>
   <v-card min-height="450" hover shaped>
-
-      <v-img
-      class="white--text"
-      height="200px"
-      :src="image">
-      </v-img>
+    <v-img class="white--text" height="200px" :src="image"></v-img>
     <v-card-title class="justify-center">
       <span align="center">{{ title }}</span>
     </v-card-title>
@@ -26,23 +21,22 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
+      default: ""
     },
     country: {
       type: String,
-      default: ''
+      default: ""
     },
     domain: {
       type: String,
-      default: ''
+      default: ""
     },
     image: {
       type: String,
-      default: ''
+      default: ""
     }
-
   }
-}
+};
 </script>
 
 <style></style>

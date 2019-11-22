@@ -1,6 +1,6 @@
 <template>
   <v-container class="center">
-    <v-layout justify-center="">
+    <v-layout justify-center>
       <v-flex md4>
         <v-form>
           <v-alert :value="errorLogin" type="error">Password or Email is incorrect</v-alert>
@@ -10,9 +10,9 @@
           <div class="text-center">
             <v-btn color="green" mt-3 @click="login()">Log in</v-btn>
           </div>
-            <router-link to="/signup">
-            <p  class="mt-5">Don't have an account?  Sign up</p>
-            </router-link>
+          <router-link to="/signup">
+            <p class="mt-5">Don't have an account? Sign up</p>
+          </router-link>
         </v-form>
       </v-flex>
     </v-layout>
@@ -20,41 +20,40 @@
 </template>
 
 <script>
-
 export default {
-  data () {
+  data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
+        v => !!v || "E-mail is required",
+        v => /.+@.+/.test(v) || "E-mail must be valid"
       ],
       error: false,
       errorLogin: false
-    }
+    };
   },
   methods: {
-    login () {
+    login() {
       this.$store
-        .dispatch('login', {
+        .dispatch("login", {
           email: this.email,
           password: this.password
         })
         .then(success => {
-          this.$router.push('/')
-          window.history.go()
+          this.$router.push("/");
+          window.history.go();
         })
         .catch(errorLogin => {
-          this.errorLogin = true
-        })
+          this.errorLogin = true;
+        });
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.center{
+.center {
   position: absolute;
   top: 10vw;
 }

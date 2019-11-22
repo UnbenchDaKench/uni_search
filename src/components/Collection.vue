@@ -27,37 +27,37 @@
 </template>
 
 <script>
-import SchoolCard from './SchoolCard'
-import { mapState } from 'vuex'
+import SchoolCard from "./SchoolCard";
+import { mapState } from "vuex";
 export default {
-  data () {
+  data() {
     return {
       showForm: false,
       key: 0
-    }
+    };
   },
   components: {
     SchoolCard
   },
   computed: {
-    ...mapState(['usersChoice'])
+    ...mapState(["usersChoice"])
   },
-  created () {
-    this.$store.dispatch('loadCollections')
+  created() {
+    this.$store.dispatch("loadCollections");
   },
   methods: {
-    imageSrc (count) {
-      return require('../assets/flags/' + count + '.jpg')
+    imageSrc(count) {
+      return require("../assets/flags/" + count + ".jpg");
     },
-    forceRender () {
-      this.key += 1
+    forceRender() {
+      this.key += 1;
     },
-    popForm (index) {
-      this.$store.dispatch('removeCollection', index)
-      this.forceRender()
+    popForm(index) {
+      this.$store.dispatch("removeCollection", index);
+      this.forceRender();
     }
   }
-}
+};
 </script>
 
 <style scoped>

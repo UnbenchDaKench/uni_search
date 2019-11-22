@@ -1,23 +1,24 @@
 <template>
   <v-footer dark height="auto">
     <v-layout row>
-      <v-flex  class="text-lg-center">Copyright © 2019 Software Engineering II Project. All rights reserved.</v-flex>
+      <v-flex
+        class="text-lg-center"
+      >Copyright © 2019 Software Engineering II Project. All rights reserved.</v-flex>
     </v-layout>
   </v-footer>
 </template>
 <script>
 export default {
-  components: {
-  },
+  components: {},
   data: () => ({
     icons: [
-      'fab fa-facebook',
-      'fab fa-twitter',
-      'fab fa-linkedin',
-      'fab fa-instagram'
+      "fab fa-facebook",
+      "fab fa-twitter",
+      "fab fa-linkedin",
+      "fab fa-instagram"
     ]
   })
-}
+};
 </script>
 <style>
 </style>
