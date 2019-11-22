@@ -21,35 +21,35 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       emailRules: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+/.test(v) || "E-mail must be valid"
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
       ],
       error: false,
       errorLogin: false
-    };
+    }
   },
   methods: {
-    login() {
+    login () {
       this.$store
-        .dispatch("login", {
+        .dispatch('login', {
           email: this.email,
           password: this.password
         })
         .then(success => {
-          this.$router.push("/");
-          window.history.go();
+          this.$router.push('/')
+          window.history.go()
         })
         .catch(errorLogin => {
-          this.errorLogin = true;
-        });
+          this.errorLogin = true
+        })
     }
   }
-};
+}
 </script>
 
 <style scoped>

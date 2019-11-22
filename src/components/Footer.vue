@@ -12,13 +12,13 @@ export default {
   components: {},
   data: () => ({
     icons: [
-      "fab fa-facebook",
-      "fab fa-twitter",
-      "fab fa-linkedin",
-      "fab fa-instagram"
+      'fab fa-facebook',
+      'fab fa-twitter',
+      'fab fa-linkedin',
+      'fab fa-instagram'
     ]
   })
-};
+}
 </script>
 <style>
 </style>

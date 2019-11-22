@@ -10,18 +10,17 @@
 </template>
 
 <script>
-import DefaultLandingPage from "../components/DefaultLandingPage";
-import LoggedInLandingPage from "../components/LoggedInLandingPage";
-import { mapState } from "vuex";
+import DefaultLandingPage from '../components/DefaultLandingPage'
+import LoggedInLandingPage from '../components/LoggedInLandingPage'
 export default {
   components: {
     DefaultLandingPage,
     LoggedInLandingPage
   },
   computed: {
-    loggedIn() {
-      return this.$store.getters.loggedIn;
+    loggedIn () {
+      return this.$store.getters.loggedIn
     }
   }
-};
+}
 </script>

@@ -23,7 +23,6 @@
 </template>
 <script>
 import TeamPerson from './teamCard'
-import axios from 'axios'
 export default {
   components: {
     TeamPerson

@@ -90,41 +90,40 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import SearchBox from "./SearchBox";
+import SearchBox from './SearchBox'
 
 export default {
-  data() {
+  data () {
     return {
-      school: "",
+      school: '',
       dialog: false,
       drawer: false
-    };
+    }
   },
   components: {
     SearchBox
   },
   computed: {
-    loggedIn() {
-      return this.$store.getters.loggedIn;
+    loggedIn () {
+      return this.$store.getters.loggedIn
     },
-    themeState() {
-      return this.$vuetify.theme.dark ? "Dark Mode" : "Light Mode";
+    themeState () {
+      return this.$vuetify.theme.dark ? 'Dark Mode' : 'Light Mode'
     },
-    darkstate() {
-      return this.$vuetify.theme.dark;
+    darkstate () {
+      return this.$vuetify.theme.dark
     },
-    routes() {
-      return require("../data/routes.json");
+    routes () {
+      return require('../data/routes.json')
     }
   },
   methods: {
-    logout() {
-      this.$store.dispatch("logout").then(this.$router.push("/"));
+    logout () {
+      this.$store.dispatch('logout').then(this.$router.push('/'))
     },
-    lightSwitch() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    lightSwitch () {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
     }
   }
-};
+}
 </script>

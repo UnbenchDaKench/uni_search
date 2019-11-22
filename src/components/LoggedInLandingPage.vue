@@ -53,65 +53,64 @@
 </template>
 
 <script>
-import SchoolCard from "../components/SchoolCard";
-import Search from "../components/Search";
-import team from "../components/team";
+import SchoolCard from '../components/SchoolCard'
+import Search from '../components/Search'
+import team from '../components/team'
 
-import { mapState, mapActions } from "vuex";
-let timeout = null;
+import { mapState, mapActions } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
-      nation: "",
+      nation: '',
       componentKey: 0
-    };
+    }
   },
   components: {
     SchoolCard,
     Search,
     team
   },
-  created() {
-    this.loadUniversities();
-    this.loadFlags();
-    this.getSchool();
+  created () {
+    this.loadUniversities()
+    this.loadFlags()
+    this.getSchool()
   },
   watch: {
-    school: function(school) {
-      timeout = setTimeout(() => {
-        this.forceRender();
-      }, 0);
+    school: function (school) {
+      setTimeout(() => {
+        this.forceRender()
+      }, 0)
     }
   },
-  mounted() {
-    this.loadByCountryUser();
+  mounted () {
+    this.loadByCountryUser()
   },
   computed: {
     ...mapState([
-      "userBasedCountry",
-      "username",
-      "nationality",
-      "flagNation",
-      "school",
-      "resultArray",
-      "flags"
+      'userBasedCountry',
+      'username',
+      'nationality',
+      'flagNation',
+      'school',
+      'resultArray',
+      'flags'
     ])
   },
   methods: {
-    ...mapActions(["loadUniversities", "loadFlags"]),
+    ...mapActions(['loadUniversities', 'loadFlags']),
 
-    loadByCountryUser() {
-      this.$store.dispatch("loadByCountryUser", "Nigeria");
+    loadByCountryUser () {
+      this.$store.dispatch('loadByCountryUser', 'Nigeria')
     },
-    getSchool() {
-      this.$store.state.school;
+    getSchool () {
+      return this.$store.state.school
     },
-    forceRender() {
-      this.componentKey += 1;
+    forceRender () {
+      this.componentKey += 1
     }
   }
-};
+}
 </script>
 
 <style scoped>

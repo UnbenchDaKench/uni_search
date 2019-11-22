@@ -17,10 +17,10 @@ export default {
     Title: String,
     Description: String
   },
-  data() {
-    return {};
+  data () {
+    return {}
   }
-};
+}
 </script>
 <style scoped>
 .shadow {

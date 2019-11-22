@@ -21,22 +21,22 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: ''
     },
     country: {
       type: String,
-      default: ""
+      default: ''
     },
     domain: {
       type: String,
-      default: ""
+      default: ''
     },
     image: {
       type: String,
-      default: ""
+      default: ''
     }
   }
-};
+}
 </script>
 
 <style></style>
