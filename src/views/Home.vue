@@ -1,6 +1,6 @@
 <template>
   <div v-if="loggedIn">
-    <LoggedInLandingPage/>
+    <LoggedInLandingPage />
     <v-divider></v-divider>
   </div>
   <div v-else>
@@ -10,18 +10,18 @@
 </template>
 
 <script>
-import DefaultLandingPage from '../components/DefaultLandingPage'
-import LoggedInLandingPage from '../components/LoggedInLandingPage'
-import { mapState } from 'vuex'
+import DefaultLandingPage from "../components/DefaultLandingPage";
+import LoggedInLandingPage from "../components/LoggedInLandingPage";
+import { mapState } from "vuex";
 export default {
   components: {
     DefaultLandingPage,
     LoggedInLandingPage
   },
   computed: {
-    loggedIn () {
-      return this.$store.getters.loggedIn
+    loggedIn() {
+      return this.$store.getters.loggedIn;
     }
   }
-}
+};
 </script>

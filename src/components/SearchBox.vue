@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div>
+    <div class="mt-6">
       <v-text-field
         v-model="school"
-        label="Search by School Name"
+        label="Search by School Name/Country"
+        clearable
+        outlined
         @blur="searchResultsVisible = false"
         @keydown="performSearch(school)"
 
@@ -30,7 +32,7 @@ export default {
         location: 0,
         maxPatternLength: 32,
         minMatchCharLength: 1,
-        keys: ['name']
+        keys: [ 'name','country']
       }
     }
   },

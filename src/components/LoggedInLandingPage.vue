@@ -12,23 +12,21 @@
       <Search :key="componentKey" v-else />
     </div>
     <div v-else>
-       <v-parallax
-    dark
-    src="https://i.ytimg.com/vi/mRMDkaozI2Q/maxresdefault.jpg"
-  >
-    <v-row
-      align="center"
-      justify="center"
-    >
-      <v-col class="text-center" cols="12">
-        <h1 class="display-3 font-weight mb-4">Welcome</h1>
-        <h4 class="subheading">{{username}}</h4>
-      </v-col>
-    </v-row>
-  </v-parallax>
-      <v-divider></v-divider>
+      <v-parallax dark src="https://i.ytimg.com/vi/mRMDkaozI2Q/maxresdefault.jpg">
+        <v-row align="center" justify="center">
+          <v-col class="text-center" cols="12">
+            <h1 class="display-4 font-weight mb-4">Welcome</h1>
+            <h4 class="subheading display-2">{{username}}</h4>
+          </v-col>
+        </v-row>
+      </v-parallax>
 
-      <!-- <h1 class="text-center">Welcome {{username}}</h1> -->
+      <v-row align="center" justify="center">
+        <v-col class="text-center" cols="12">
+          <span class="font-weight mb-4">Based on your nationality</span>
+        </v-col>
+      </v-row>
+      <v-divider></v-divider>
       <v-layout row wrap justify-center>
         <v-flex
           lg3
@@ -55,65 +53,65 @@
 </template>
 
 <script>
-import SchoolCard from '../components/SchoolCard'
-import Search from '../components/Search'
-import team from '../components/team'
+import SchoolCard from "../components/SchoolCard";
+import Search from "../components/Search";
+import team from "../components/team";
 
-import { mapState, mapActions } from 'vuex'
-let timeout = null
+import { mapState, mapActions } from "vuex";
+let timeout = null;
 
 export default {
-  data () {
+  data() {
     return {
-      nation: '',
+      nation: "",
       componentKey: 0
-    }
+    };
   },
   components: {
     SchoolCard,
     Search,
     team
   },
-  created () {
-    this.loadUniversities()
-    this.loadFlags()
-    this.getSchool()
+  created() {
+    this.loadUniversities();
+    this.loadFlags();
+    this.getSchool();
   },
   watch: {
-    school: function (school) {
+    school: function(school) {
       timeout = setTimeout(() => {
-        this.forceRender()
-      }, 0)
+        this.forceRender();
+      }, 0);
     }
   },
-  mounted () {
-    this.loadByCountryUser()
+  mounted() {
+    this.loadByCountryUser();
   },
   computed: {
     ...mapState([
-      'userBasedCountry',
-      'username',
-      'nationality',
-      'flagNation',
-      'school',
-      'resultArray',
-      'flags'
+      "userBasedCountry",
+      "username",
+      "nationality",
+      "flagNation",
+      "school",
+      "resultArray",
+      "flags"
     ])
   },
   methods: {
-    ...mapActions(['loadUniversities', 'loadFlags']),
+    ...mapActions(["loadUniversities", "loadFlags"]),
 
-    loadByCountryUser () {
-      this.$store.dispatch('loadByCountryUser', 'Nigeria')
+    loadByCountryUser() {
+      this.$store.dispatch("loadByCountryUser", "Nigeria");
     },
-    getSchool () {
-      this.$store.state.school
+    getSchool() {
+      this.$store.state.school;
     },
-    forceRender () {
-      this.componentKey += 1
+    forceRender() {
+      this.componentKey += 1;
     }
   }
-}
+};
 </script>
 
 <style scoped>

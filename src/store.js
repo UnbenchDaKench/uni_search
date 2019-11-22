@@ -124,15 +124,15 @@ export default new Vuex.Store({
     userId: localStorage.getItem('userId') || null
   },
   mutations: {
-    LOAD_UNIVERSITIES (state) {
+    LOAD_UNIVERSITIES(state) {
       state.all_universities = require('./data/NewUni.json')
     },
-    LOAD_FLAG (state, nation) {
+    LOAD_FLAG(state, nation) {
       state.flags = require('./data/flags.json')
       state.flagNation = state.flags[state.nationality]
     },
 
-    LOGIN (state, res) {
+    LOGIN(state, res) {
       state.token = res.token
       state.username = res.username
       state.userId = res.userId
@@ -141,7 +141,7 @@ export default new Vuex.Store({
         state.usersChoice = res.data.schoolChoices
       })
     },
-    LOGOUT (state) {
+    LOGOUT(state) {
       state.login = false
       localStorage.removeItem('token')
       localStorage.removeItem('username')
@@ -155,24 +155,25 @@ export default new Vuex.Store({
       window.history.go()
     },
 
-    LOAD_BY_COUNTRY_USER (state, country) {
+    LOAD_BY_COUNTRY_USER(state, country) {
       for (var i = 0; i < state.all_universities.length; i++) {
         if (state.all_universities[i].country === this.state.nationality) {
           state.userBasedCountry.push(state.all_universities[i])
         }
       }
     },
-    PERFORM_SEARCH (state, schools) {
+
+    PERFORM_SEARCH(state, schools) {
       state.school = schools
     },
-    RESULT_ARRAY (state, result) {
+    RESULT_ARRAY(state, result) {
       state.resultArray = result
     },
-    DELETE_SCHOOL (state, index) {
+    DELETE_SCHOOL(state, index) {
       state.filteredCountry[index].isvisited = true
       state.filteredCountry.splice(index, 1)
     },
-    ADD_USERS_CHOICE (state, index) {
+    ADD_USERS_CHOICE(state, index) {
       state.filteredCountry[index].isvisited = true
       state.usersChoice.push(state.filteredCountry[index])
       var id = this.state.userId
@@ -184,7 +185,7 @@ export default new Vuex.Store({
           console.log(error.message)
         })
     },
-    FILTER_COUNTRY (state, nation) {
+    FILTER_COUNTRY(state, nation) {
       state.errorGet = 0
       state.filteredCountry = []
       for (var i = 0; i < state.all_universities.length; i++) {
@@ -201,7 +202,7 @@ export default new Vuex.Store({
         }
       }
     },
-    LOAD_COLLECTIONS (state) {
+    LOAD_COLLECTIONS(state) {
       var url = '/api/collection/' + state.userId + '/'
       axios.get(url).then(res => {
         state.usersChoice = res.data.schoolChoices
@@ -211,13 +212,13 @@ export default new Vuex.Store({
           state.errorGet = 400
         })
     },
-    REMOVE_COLLECTION (state, index) {
+    REMOVE_COLLECTION(state, index) {
       var collectionId = state.usersChoice[index]._id
       var url = '/api/collection/' + state.userId + '/' + collectionId
       axios.delete(url)
       state.usersChoice.splice(index, 1)
     },
-    ADD_FROM_SEARCH (state, index) {
+    ADD_FROM_SEARCH(state, index) {
       state.resultArray[index].isvisited = true
       state.usersChoice.push(state.resultArray[index])
       var id = this.state.userId
@@ -229,7 +230,7 @@ export default new Vuex.Store({
           console.log(error.message)
         })
     },
-    UPDATE (state, res) {
+    UPDATE(state, res) {
       localStorage.setItem('username', res.username)
       localStorage.setItem('nationality', res.nationality)
       state.username = res.username
@@ -240,17 +241,17 @@ export default new Vuex.Store({
   },
 
   getters: {
-    loggedIn (state) {
+    loggedIn(state) {
       return state.token !== null
     },
-    resultArray (state) {
+    resultArray(state) {
       return state.resultArray
     }
 
   },
 
   actions: {
-    signup ({ commit }, user) {
+    signup({ commit }, user) {
       return new Promise((resolve, reject) => {
         axios.post('/api/user/signup', user)
           .then(({ res, status }) => {
@@ -260,7 +261,7 @@ export default new Vuex.Store({
           })
       })
     },
-    login ({ commit }, user) {
+    login({ commit }, user) {
       return new Promise((resolve, reject) => {
         axios.post('/api/user/login', user)
           .then(res => {
@@ -279,46 +280,46 @@ export default new Vuex.Store({
           })
       })
     },
-    logout ({ commit }) {
+    logout({ commit }) {
       commit('LOGOUT')
     },
-    loadUniversities ({ commit }) {
+    loadUniversities({ commit }) {
       commit('LOAD_UNIVERSITIES')
     },
-    loadFlags ({ commit }, nation) {
+    loadFlags({ commit }, nation) {
       commit('LOAD_FLAG', nation)
     },
-    loadByCountry ({ commit }) {
+    loadByCountry({ commit }) {
       commit('LOAD_BY_COUNTRY')
     },
-    loadByCountryUser ({ commit }, country) {
+    loadByCountryUser({ commit }, country) {
       commit('LOAD_BY_COUNTRY_USER', country)
     },
-    performSearch ({ commit }, school) {
+    performSearch({ commit }, school) {
       commit('PERFORM_SEARCH', school)
     },
-    resultarray ({ commit }, result) {
+    resultarray({ commit }, result) {
       commit('RESULT_ARRAY', result)
     },
-    deleteSchool ({ commit }, index) {
+    deleteSchool({ commit }, index) {
       commit('DELETE_SCHOOL', index)
     },
-    addUsersChoice ({ commit }, index) {
+    addUsersChoice({ commit }, index) {
       commit('ADD_USERS_CHOICE', index)
     },
-    filterCountry ({ commit }, nation) {
+    filterCountry({ commit }, nation) {
       commit('FILTER_COUNTRY', nation)
     },
-    loadCollections ({ commit }) {
+    loadCollections({ commit }) {
       commit('LOAD_COLLECTIONS')
     },
-    removeCollection ({ commit }, index) {
+    removeCollection({ commit }, index) {
       commit('REMOVE_COLLECTION', index)
     },
-    addUsersChoiceFromSearch ({ commit }, index) {
+    addUsersChoiceFromSearch({ commit }, index) {
       commit('ADD_FROM_SEARCH', index)
     },
-    update ({ commit }, user) {
+    update({ commit }, user) {
       var url = '/api/user/' + this.state.userId + '/'
       axios.post(url, user)
         .then(res => {
@@ -326,7 +327,7 @@ export default new Vuex.Store({
           console.log(res.data)
         })
     },
-    deleteUser ({ commit }) {
+    deleteUser({ commit }) {
       var url = '/api/user/' + this.state.userId + '/'
       axios.delete(url).then(res => {
       })

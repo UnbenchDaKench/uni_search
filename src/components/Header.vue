@@ -62,7 +62,7 @@
         <span v-if="loggedIn" class="mt-3">
           <v-dialog v-model="dialog" persistent max-width="290">
             <template v-slot:activator="{ on }">
-              <v-btn class="mb-5" text v-on="on">Logout</v-btn>
+              <v-btn class="mb-4" text v-on="on">Logout</v-btn>
             </template>
             <v-card>
               <v-card-title>Are you sure you want to Logout?</v-card-title>
