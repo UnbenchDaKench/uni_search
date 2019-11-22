@@ -6,6 +6,7 @@
         label="Search by School Name/Country"
         clearable
         outlined
+        prepend-inner-icon="fas fa-search"
         @blur="searchResultsVisible = false"
         @keydown="performSearch(school)"
       ></v-text-field>
@@ -15,6 +16,7 @@
         v-model="school"
         label="Search by School Name/Country"
         clearable
+        prepend-inner-icon="fas fa-search"
         @blur="searchResultsVisible = false"
         @keydown="performSearch(school)"
       ></v-text-field>
