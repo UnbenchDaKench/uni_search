@@ -31,7 +31,7 @@
         </v-form>
         <v-dialog v-model="dialog2" persistent max-width="290">
           <template v-slot:activator="{ on }">
-            <v-btn color="red" class="mt-10" v-on="on">Delete acoount</v-btn>
+            <v-btn color="red" class="mt-10" v-on="on">Delete account</v-btn>
           </template>
           <v-card>
             <v-card-title>Are you sure you want to delete user?</v-card-title>
