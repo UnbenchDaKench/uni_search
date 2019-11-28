@@ -3,7 +3,7 @@
     <v-layout justify-center class="mt-10 pa-10">
       <v-flex md4>
         <v-form>
-          <v-text-field v-model="username" :rules="nameRules" :error="error" label="Username"></v-text-field>
+          <v-text-field v-model="username" :error="error" label="Username"></v-text-field>
           <v-select
             v-model="nationality"
             :items="states"
@@ -13,26 +13,6 @@
             label="Nationality"
             single-line
           ></v-select>
-          <!-- <v-text-field
-            :type="'password'"
-            name="input-10-2"
-            label="password"
-            v-model="password"
-            hint="At least 8 characters"
-            class="input-group--focused"
-            :rules="passwordRules"
-            :error="error"
-          ></v-text-field>
-          <v-text-field
-            :type="'password'"
-            name="input-10-2"
-            label="Confirm Password"
-            v-model="confirm_password"
-            hint="At least 8 characters"
-            class="input-group--focused"
-            :rules="confirmpasswordRules"
-            :error="error"
-          ></v-text-field>-->
           <div class="text-center mt-10 pa-10">
             <v-dialog v-model="dialog" persistent max-width="290">
               <template v-slot:activator="{ on }">

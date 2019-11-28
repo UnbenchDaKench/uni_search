@@ -5,7 +5,7 @@
         <v-form>
           <v-alert :value="errorSignUp" type="error">This user already exists, try again</v-alert>
           <v-text-field v-model="email" :rules="emailRules" label="E-mail" :error="error" required></v-text-field>
-          <v-text-field v-model="username" :rules="nameRules" :error="error" label="Username"></v-text-field>
+          <v-text-field v-model="username" :error="error" label="Username"></v-text-field>
           <v-select
             v-model="nationality"
             :items="states"
