@@ -2,7 +2,7 @@
     <v-container fluid>
       <v-layout justify="center" row wrap>
         <v-flex xs12 md12 order-lg2 lg12 class="text-center mt-2">
-          <span class="display-1 font-weight">UNISEARCHNOW DEV TEAM</span>
+          <span class="display-1 font-weight">UNISEARCHNOW DEv TEAM</span>
         </v-flex>
         <v-flex xs12 md12 order-lg2 lg12 class="mt-2 text-center">
           <h3 class="subheading">Uni search developers are just too cool</h3>
