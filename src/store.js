@@ -105,9 +105,9 @@ export default new Vuex.Store({
     filteredCountry: [
       {
         'web_pages': [
-          'http://google.com/'
+          'https://www2.acadiau.ca/home.html'
         ],
-        'name': 'Default Universisity',
+        'name': 'Acadia Universisity',
         'alpha_two_code': 'CA',
         'state-province': 'Quebec',
         'domains': [
